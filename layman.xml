@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<repositories version="1.0">
+    <repo priority="50" quality="experimental" status="unofficial">
+        <name>andrex</name>
+        <description>Third-party gentoo overlay from Andrey Antonov</description>
+        <homepage>https://github.com/andrex4k</homepage>
+
+        <owner>
+            <email>andrex4k@gmail.com</email>
+        </owner>
+
+        <source type="git">https://github.com/andrex4k/portage.git</source>
+    </repo>
+</repositories>
