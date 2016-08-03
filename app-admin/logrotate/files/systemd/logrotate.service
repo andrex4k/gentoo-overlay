@@ -1,0 +1,18 @@
+[Unit]
+Description = Rotate log files
+
+Wants = local-fs.target
+Wants = logrotate.timer
+
+[Service]
+Type = oneshot
+
+Nice = 19
+
+IOSchedulingClass = best-effort
+IOSchedulingPriority = 7
+
+ExecStart = /usr/sbin/logrotate --verbose /etc/logrotate.conf
+
+[Install]
+WantedBy = default.target

@@ -1,0 +1,135 @@
+DESCRIPTION="Manage the /usr/src/linux symlink to /lib/modules/'kernel version'/build"
+MAINTAINER="agentsmith.hengsha.city@gmail.com"
+VERSION="1.0.0"
+
+###############################################################################
+# Helper functions
+###############################################################################
+
+# Sort function for kernel versions, to be used in a pipe.
+sort_kernel_versions() {
+	local vsort="sort --version-sort"
+
+	# Test if our sort supports the --version-sort option
+	# (should be GNU sort, since the kernel module is GNU/Linux specific).
+	${vsort} </dev/null &>/dev/null || vsort=sort
+
+	# We sort kernel versions as follows:
+	# 1. Run sed to prepend the version string by the numeric version
+	#    and an additional rank indicator that is 0 for release candidates
+	#    or 1 otherwise. After this step we have, for example:
+	#      2.6.29  1  2.6.29
+	#      2.6.29  0  2.6.29-rc8
+	# 2. sort --version-sort
+	# 3. Run sed again to remove the prepended keys from step 1.
+	sed -e 's/^\([[:digit:].]\+\)[-_]rc/ 0 &/' \
+	    -e 't;s/^\([[:digit:].]\+\)/ 1 &/' \
+	    | LC_ALL=C ${vsort} | sed 's/.* //'
+}
+
+# Find a list of kernel symlink targets.
+find_targets() {
+	local i
+	for i in "${EROOT}"/lib/modules/*; do
+		basename "${i}"
+	done | sort_kernel_versions
+}
+
+# Set the kernel symlink.
+set_symlink() {
+	local target=$1
+
+	if is_number "${target}"; then
+		local targets=($(find_targets))
+		target=${targets[target-1]}
+	fi
+
+	if [[ -z ${target} ]]; then
+		die -q "Target \"${1}\" doesn't appear to be valid!"
+	elif [[ -f ${EROOT}/lib/modules/${target}/build/Makefile ]]; then
+		ln -sf "${EROOT}/lib/modules/${target}/build" "${EROOT}/usr/src/linux"
+	else
+		die -q "Target \"${1}\" doesn't appear to be valid!"
+	fi
+}
+
+# Remove the kernel symlink.
+remove_symlink() {
+	rm "${EROOT}/usr/src/linux"
+}
+
+###############################################################################
+# Show action
+###############################################################################
+
+describe_show() {
+	echo "Show the current /usr/src/linux symlink path"
+}
+
+do_show() {
+	write_list_start "Current /usr/src/linux symlink path:"
+
+	if [[ -L ${EROOT}/usr/src/linux ]]; then
+		local linux=$(canonicalise "${EROOT}/usr/src/linux")
+
+		write_kv_list_entry "${linux%/build}" ""
+
+		if [[ -f ${kernel}/Makefile ]]; then
+			write_warning_msg "Symlink target doesn't appear to be valid!"
+		fi
+	else
+		write_kv_list_entry "(unset)" ""
+	fi
+}
+
+###############################################################################
+# List action
+###############################################################################
+
+describe_list() {
+	echo "List available /usr/src/linux targets"
+}
+
+do_list() {
+	local i targets=($(find_targets))
+
+	write_list_start "Available kernel targets:"
+	for (( i = 0; i < ${#targets[@]}; i++ )); do
+	    [[ ${targets[i]} = \
+	        $(basename $(dirname "$(canonicalise "${EROOT}/usr/src/linux")")) ]] \
+	        && targets[i]=$(highlight_marker "${targets[i]}")
+	done
+	write_numbered_list -m "(none found)" "${targets[@]}"
+}
+
+###############################################################################
+# Set action
+###############################################################################
+
+describe_set() {
+	echo "Set a new /usr/src/linux symlink"
+}
+
+describe_set_parameters() {
+	echo "<target>"
+}
+
+describe_set_options() {
+	echo "target : Target name or number (from 'list' action)"
+}
+
+do_set() {
+	[[ -z $1 ]] && die -q "You didn't tell me what to set the symlink to"
+	[[ $# -gt 1 ]] && die -q "Too many parameters"
+
+	if [[ -L ${EROOT}/usr/src/linux ]]; then
+		# existing symlink
+		remove_symlink || die -q "Couldn't remove existing symlink"
+		set_symlink "$1" || die -q "Couldn't set a new symlink"
+	elif [[ -e ${EROOT}/usr/src/linux ]]; then
+		# we have something strange
+		die -q "${EROOT}/usr/src/linux exists but is not a symlink"
+	else
+		set_symlink "$1" || die -q "Couldn't set a new symlink"
+	fi
+}
