@@ -1,0 +1,13 @@
+[Unit]
+Description = Firebird database server (classic)
+
+After = local-fs.target
+
+[Service]
+User = firebird
+Group = firebird
+
+StandardInput = socket
+StandardError = syslog
+
+ExecStart = /usr/bin/firebird

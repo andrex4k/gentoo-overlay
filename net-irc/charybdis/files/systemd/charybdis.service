@@ -1,0 +1,17 @@
+[Unit]
+Description = Charybdis irc server
+
+After = local-fs.target network.target
+
+[Service]
+Type = forking
+
+User = charybdis
+Group = charybdis
+
+PIDFile = /run/charybdis/ircd.pid
+
+ExecStart = /usr/bin/charybdis-ircd
+
+[Install]
+WantedBy = multi-user.target

@@ -1,0 +1,7 @@
+net-analyzer/gnu-netcat
+net-analyzer/iftop
+net-analyzer/nmap
+net-analyzer/speedtest-cli
+net-analyzer/tcpdump
+net-analyzer/traceroute-nanog
+net-analyzer/wireshark

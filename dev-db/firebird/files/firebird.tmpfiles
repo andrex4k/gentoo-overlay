@@ -1,0 +1,2 @@
+d /tmp/firebird 0770 firebird firebird
+d /var/run/firebird 0750 firebird firebird

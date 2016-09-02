@@ -1,0 +1,19 @@
+[Unit]
+Description = Firebird database server (superserver)
+
+After = syslog.target network.target
+
+Conflicts = firebird-classic.socket
+
+[Service]
+Type = forking
+
+User = firebird
+Group = firebird
+
+StandardError = syslog
+
+ExecStart = /usr/bin/fbguard -pidfile /var/run/firebird/default.pid -daemon -forever
+
+[Install]
+WantedBy = multi-user.target
