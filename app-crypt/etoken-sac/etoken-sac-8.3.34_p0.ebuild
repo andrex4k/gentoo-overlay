@@ -19,7 +19,7 @@ MY_P_COMPAT="x32 Compatibility/RPM/SAC-32-CompatibilityPack-${MY_PV}"
 SRC_URI="http://online.payment.ru/drivers/SAC_${PV%.*}_Linux_${MAGIC_DATE}.zip"
 
 HOMEPAGE="http://aladdin-rd.ru"
-LICENSE="EULA"
+LICENSE="@EULA"
 RESTRICT="mirror"
 SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
