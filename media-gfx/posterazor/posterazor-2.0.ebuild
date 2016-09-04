@@ -1,6 +1,6 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-EAPI=3
+EAPI=5
 
 inherit git-2
 
@@ -10,14 +10,14 @@ LICENSE="GPL-2"
 SLOT="0"
 EGIT_REPO_URI="git://github.com/aportale/posterazor.git"
 SRC_URI=""
-S=${WORKDIR}/${PN}
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-libs/freeimage
 x11-libs/qt-gui"
 DEPEND="${RDEPEND}"
+
 src_compile() {
 	cd src
 	qmake -o Makefile posterazor.pro
