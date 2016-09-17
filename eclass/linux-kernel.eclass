@@ -358,7 +358,7 @@ kernel_pkg_postinst() {
 		# NOTE: We can use 'eselect linux ${MY_PV}' but he add one more / in symlink
 		mkdir -p "${EROOT}usr/src"
 		symlink_rm_ln "${KMDIR}/build" "${EROOT}usr/src/linux"
-		cp "/boot//boot/efi/EFI/boot/bootx64.efi" "/boot/efi/EFI/boot/bootx64old.efi" && cp "/boot/vmlinuz-${MY_PV}" "/boot/efi/EFI/boot/bootx64.efi"
+		cp "/boot/efi/EFI/boot/bootx64.efi" "/boot/efi/EFI/boot/bootx64old.efi" && cp "/boot/vmlinuz-${MY_PV}" "/boot/efi/EFI/boot/bootx64.efi"
         fi
 
 	if use dracut ; then
