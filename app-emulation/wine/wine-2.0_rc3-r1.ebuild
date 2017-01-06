@@ -198,8 +198,10 @@ wine_gcc_specific_pretests() {
 	( [[ "${MERGE_TYPE}" = "binary" ]] || ! tc-is-gcc ) && return 0
 
 	# bug #549768
-	if use abi_x86_64 && [[ $(gcc-major-version) -eq 5 && $(gcc-minor-version) -le 2 ]]; then
-		ebegin "(subshell): checking for gcc-5.1/gcc-5.2 MS X86_64 ABI compiler bug ..."
+	if use abi_x86_64 && [[ $(gcc-major-version) -eq 6 && 
+$(gcc-minor-version) -le 3 ]]; then
+		ebegin "(subshell): checking for gcc-6.3/gcc-6.3 MS 
+X86_64 ABI compiler bug ..."
 		( # Run in a subshell to prevent "Aborted" message
 			$(tc-getCC) -O2 "${FILESDIR}/pr66838.c" -o "${T}/pr66838" || die "cc compilation failed: pr66838 test"
 			"${T}"/pr66838 &>/dev/null || die "pr66838 test failed"
@@ -216,8 +218,10 @@ wine_gcc_specific_pretests() {
 	fi
 
 	# bug #574044
-	if use abi_x86_64 && [[ $(gcc-major-version) -eq 5 && $(gcc-minor-version) -eq 3 ]]; then
-		ebegin "(subshell): checking for gcc-5.3.0 X86_64 misaligned stack compiler bug ..."
+	if use abi_x86_64 && [[ $(gcc-major-version) -eq 6 && 
+$(gcc-minor-version) -eq 3 ]]; then
+		ebegin "(subshell): checking for gcc-6.3.0 X86_64 
+misaligned stack compiler bug ..."
 		( # Compile in a subshell to prevent "Aborted" message
 			$(tc-getCC) -O2 -mincoming-stack-boundary=3 "${FILESDIR}"/pr69140.c -o "${T}"/pr69140 &>/dev/null || die "pr69140 test failed"
 		)
