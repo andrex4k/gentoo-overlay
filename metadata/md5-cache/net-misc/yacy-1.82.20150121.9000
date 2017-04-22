@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst setup
+DEPEND=>=virtual/jdk-1.5.0
+DESCRIPTION=p2p based distributed web-search engine - latest stable binary
+EAPI=5
+HOMEPAGE=http://www.yacy.net/
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RESTRICT=mirror
+SLOT=0
+SRC_URI=http://yacy.net/release/yacy_v1.82_20150121_9000.tar.gz
+_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	e7491451996e8b54c3caeb713285b0fb	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	0236be304ee52e7f179ed2f337075515	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	user	e4b567c44272a719fabf53f0f885d3f7	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_md5_=7f08ab250930b53e27ad4081b68ff211

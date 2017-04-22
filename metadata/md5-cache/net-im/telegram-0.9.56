@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Unofficial telegram protocol client
+EAPI=5
+HOMEPAGE=https://telegram.org/
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=amd64? ( https://updates.tdesktop.com/tlinux/tsetup.0.9.56.tar.xz -> telegram-0.9.56.tar.xz ) x86? ( https://updates.tdesktop.com/tlinux32/tsetup32.0.9.56.tar.xz -> telegram32-0.9.56.tar.xz )
+_md5_=84e232780e7799e59e836c5c87f0b925

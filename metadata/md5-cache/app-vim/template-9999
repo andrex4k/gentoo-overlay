@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst postrm unpack
+DEPEND=>=dev-vcs/git-1.8.2.1 || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=Simple templates plugin for vim
+EAPI=5
+HOMEPAGE=https://github.com/aperezdc/vim-template
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+_eclasses_=git-r3	cbafa3261c37c7e3af44bb16a34ea390	vim-doc	af2c81a1feeb0a99e91bee3e20769edb	vim-plugin	6f0171b0a2f2fce005c13b4c0685a0d8
+_md5_=5e6f4e0fa22998078d9686604cf93e38

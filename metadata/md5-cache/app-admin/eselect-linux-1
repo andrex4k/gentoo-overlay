@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DEPEND=>=app-admin/eselect-1.2.4
+DESCRIPTION=Linux kernel eselect firmware and headers support
+EAPI=5
+HOMEPAGE=http://www.github.com/killer2tester/gentoo-overlay-lif
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=app-admin/eselect-1.2.4
+SLOT=0
+_md5_=f467595bd47a39a9b0ef0ab51a661fa2

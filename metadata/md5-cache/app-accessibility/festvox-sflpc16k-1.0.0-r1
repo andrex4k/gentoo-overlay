@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Female Spanish voice for Festival
+EAPI=4
+HOMEPAGE=http://www.guadalinex.org
+KEYWORDS=~x86 ~amd64
+LICENSE=GPL-2
+RDEPEND=>=app-accessibility/festival-1.96_beta
+SLOT=0
+SRC_URI=http://v7.guadalinex.org/guadalinex-lince/pool/main/f/festvox-sflpc16k/festvox-sflpc16k_1.0.0_all.deb
+_md5_=a3ad8784901fc2afeb5f870d986ed199
