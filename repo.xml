@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+	<repo quality="experimental" status="unofficial">
+		<name><![CDATA[andrex]]></name>
+		<description><![CDATA[Useful tools for gentoo 
+linux]]></description>
+		<description lang="ru"><![CDATA[Ebuild for 
+Gentoo]]></description>
+		
+<homepage>https://github.com/andrex4k/gentoo-overlay</homepage>
+		<owner type="person">
+			<name>andrex</name>
+			<email>zratolale@gmail.com</email>
+		</owner>
+		<source 
+type="git">git://github.com/andrex4k/gentoo-overlay.git</source>
+		
+<feed>https://github.com/andrex4k/gentoo-overlay/commits/master.atom</feed>
+	</repo>
+</repositories>
