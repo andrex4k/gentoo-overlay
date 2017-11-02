@@ -42,7 +42,7 @@ python_compile_all() {
 	if use doc; then
 		# Point sphinx to right location with built sources
 		sed -i 's|"../build/"+d|"'"${BUILD_DIR}"'/lib"|g' doc/conf.py || die
-		esetup.py build_doc --build-dir "${S}"/build/doc/
+		setup.py build_doc --build-dir "${S}"/build/doc/
 	fi
 }
 
