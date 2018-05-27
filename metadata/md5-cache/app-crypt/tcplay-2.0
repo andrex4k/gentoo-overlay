@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-libs/libgpg-error >=dev-libs/libgcrypt-1.5.0:0 sys-apps/util-linux sys-fs/lvm2 sys-devel/make >=dev-util/cmake-3.7.2
+DEPEND=dev-libs/libgpg-error >=dev-libs/libgcrypt-1.5.0:0 sys-apps/util-linux sys-fs/lvm2 sys-devel/make >=dev-util/cmake-3.9.6
 DESCRIPTION=Free and simple TrueCrypt Implementation based on dm-crypt
 EAPI=5
 HOMEPAGE=https://github.com/bwalex/tc-play
@@ -10,5 +10,5 @@ RDEPEND=dev-libs/libgpg-error >=dev-libs/libgcrypt-1.5.0:0 sys-apps/util-linux s
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/bwalex/tc-play/tarball/b44b1fad854c726dda3ec7bfc96fe2d437d4343f -> tcplay-2.0.tar.gz
-_eclasses_=cmake-utils	a69f3a404abc4ade0a99e523f51b989d	epatch	8233751dc5105a6ae8fcd86ce2bb0247	epunt-cxx	f8073339d152f56626493f43d8ba4691	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	e7491451996e8b54c3caeb713285b0fb	flag-o-matic	61cad4fb5d800b29d484b27cb033f59b	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	0236be304ee52e7f179ed2f337075515	multiprocessing	284a473719153462f3e974d86c8cb81c	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	vcs-snapshot	03289f51c769cf409d200d2d628cdd6e	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_eclasses_=cmake-utils	49cd471f02483798c5068698836b7429	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	eapi7-ver	d97a56a62c7df8614afddcb25f5ff00f	epatch	9a5f039771f143195164a15a4faa41a1	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	63392afb034aad67f17fa129019eb4d9	flag-o-matic	5128c4729303400bd8d4b0b966530955	ltprune	607e058da37aa6dabfa408b7d61da72e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	d2e7e7d290428bb25c56dcf2502badc1	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	vcs-snapshot	3be1ab44131e8c0bbdaa75823008444b	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
 _md5_=14bca56a78b0ff5d4484095836c56a98

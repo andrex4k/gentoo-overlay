@@ -7,5 +7,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=media-libs/freeimage x11-libs/qt-gui
 SLOT=0
-_eclasses_=git-2	195a672bfaf52d868442171c9469bbb6
+_eclasses_=git-2	45ff482316b52b3f96ff6b7309b77f03
 _md5_=21a5a13df0952e58a574d5e96452abb3
