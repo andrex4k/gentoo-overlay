@@ -10,6 +10,6 @@ RDEPEND=php_targets_php5-3? ( dev-lang/php:5.3 ) php_targets_php5-4? ( dev-lang/
 REQUIRED_USE=|| ( php_targets_php5-3 php_targets_php5-4 php_targets_php5-5 )
 RESTRICT=nomirror strip
 SLOT=0
-SRC_URI=http://downloads2.ioncube.com/loader_downloads/ioncube_loaders_lin_.tar.bz2
+SRC_URI=http://downloads2.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.bz2
 _eclasses_=autotools	d0e5375d47f4c809f406eb892e531513	libtool	0081a71a261724730ec4c248494f044d	multilib	97f470f374f2e94ccab04a2fb21d811e	php-ext-source-r2	f89db15e993f2a909a1baea2031e409d	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607
 _md5_=35740c0870d9736bd7e0d601302b9810
