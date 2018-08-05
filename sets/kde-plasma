@@ -2,12 +2,12 @@
 kde-plasma/bluedevil:5
 kde-plasma/breeze:5
 kde-plasma/breeze-grub:5
-kde-plasma/breeze-gtk:5
+#kde-plasma/breeze-gtk:5
 kde-plasma/breeze-plymouth:5
 kde-plasma/drkonqi:5
 kde-plasma/kactivitymanagerd:5
 kde-plasma/kde-cli-tools:5
-kde-plasma/kde-gtk-config:5
+#kde-plasma/kde-gtk-config:5
 kde-plasma/kdecoration:5
 kde-plasma/kdeplasma-addons:5
 kde-plasma/kgamma:5
