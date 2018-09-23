@@ -62,7 +62,7 @@ HOMEPAGE="http://www.kernel.org/"
 SRC_URI="${MY_SRC_URI}"
 
 LICENSE="GPL-2 freedist"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~x86"
 
 IUSE=""
 
@@ -75,7 +75,7 @@ DEPEND="
 "
 
 if [[ ${ETYPE} == kernel ]]; then
-	IUSE+="dracut +firmware +headers +mheaders symlink"
+	IUSE+="dracut firmware headers mheaders +symlink"
 
 	RDEPEND="
 		dracut? ( sys-kernel/dracut )
