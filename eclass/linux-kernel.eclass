@@ -75,7 +75,7 @@ DEPEND="
 "
 
 if [[ ${ETYPE} == kernel ]]; then
-	IUSE+="dracut firmware headers mheaders +symlink"
+	IUSE+="dracut firmware headers +mheaders +symlink"
 
 	RDEPEND="
 		dracut? ( sys-kernel/dracut )
