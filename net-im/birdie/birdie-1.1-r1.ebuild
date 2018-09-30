@@ -27,8 +27,7 @@ RDEPEND="
 	net-libs/libsoup:2.4
 	net-libs/rest:0.7
 	media-libs/libcanberra
-	net-im/pidgin
-	net-libs/webkit-gtk:3
+	net-libs/webkit-gtk:4
 	>=x11-libs/gtk+-3.10:3
 	x11-libs/gtksourceview:3.0
 	x11-libs/libnotify
