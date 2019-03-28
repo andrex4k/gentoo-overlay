@@ -1,0 +1,2 @@
+sys-auth/consolekit -policykit
+gnome-base/gvfs -udisks
