@@ -1,5 +1,5 @@
 DESCRIPTION="Manage the /usr/src/linux symlink to /lib/modules/'kernel version'/build"
-MAINTAINER="andrey antonov zratolale@gmail.com"
+MAINTAINER="agentsmith.hengsha.city@gmail.com"
 VERSION="1.0.0"
 
 ###############################################################################

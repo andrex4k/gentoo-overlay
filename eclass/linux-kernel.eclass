@@ -7,7 +7,7 @@
 # '----'
 #
 # @ECLASS: linux-kernel.eclass
-# @MAINTAINER: Igor Savlook <igorsavlook@gmail.com>
+# @MAINTAINER: Andrey Antonov <zratolale@gmail.com>
 # @BLURB: Eclass for sys-kernel/linux{,-headers} package
 # @DESCRIPTION: Simplest and clean version of kernel-2.eclass from
 #   official gentoo repository for install stable version of linux
@@ -75,7 +75,7 @@ DEPEND="
 "
 
 if [[ ${ETYPE} == kernel ]]; then
-	IUSE+="dracut firmware headers +mheaders +symlink"
+	IUSE+="dracut firmware headers mheaders +symlink"
 
 	RDEPEND="
 		dracut? ( sys-kernel/dracut )
