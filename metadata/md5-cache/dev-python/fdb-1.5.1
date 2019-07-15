@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=fb15? ( <=dev-db/firebird-bin-1.5.6.5026 ) fb30? ( >=dev-db/firebird-3.0.0.32136 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_4? ( dev-lang/python:3.4 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_4(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-)] dev-python/setuptools python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_4? ( dev-lang/python:3.4 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_4(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-)]
+DEPEND=fb15? ( <=dev-db/firebird-bin-1.5.6.5026 ) fb30? ( >=dev-db/firebird-3.0.0.32136 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_5(-)] dev-python/setuptools python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_5(-)]
 DESCRIPTION=Firebird RDBMS bindings for Python.
 EAPI=6
 HOMEPAGE=https://pypi.python.org/pypi/fdb/
-IUSE=fb15 +fb30 python_targets_python2_7 python_targets_python3_4 python_targets_python3_5
+IUSE=fb15 +fb30 python_targets_python2_7 python_targets_python3_5
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=fb15? ( <=dev-db/firebird-bin-1.5.6.5026 ) fb30? ( >=dev-db/firebird-3.0.0.32136 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_4? ( dev-lang/python:3.4 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_4(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_4(-),-python_single_target_python3_5(-)]
-REQUIRED_USE=|| ( fb15 fb30 ) || ( python_targets_python2_7 python_targets_python3_4 python_targets_python3_5 )
+RDEPEND=fb15? ( <=dev-db/firebird-bin-1.5.6.5026 ) fb30? ( >=dev-db/firebird-3.0.0.32136 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) python_targets_python3_5? ( dev-lang/python:3.5 ) >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,python_targets_python3_5(-)?,-python_single_target_python2_7(-),-python_single_target_python3_5(-)]
+REQUIRED_USE=|| ( fb15 fb30 ) || ( python_targets_python2_7 python_targets_python3_5 )
 SLOT=0
 SRC_URI=mirror://pypi/f/fdb/fdb-1.5.1.tar.gz
-_eclasses_=distutils-r1	886fc23057eeb13c25b3ed870e1ee23a	multibuild	35719a9cd25ec71ee49c966f6868454c	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	0b5829eb6369d7af3a834b6eed7b7107	python-utils-r1	7db901256449fef43c3aaa4d486c1c63	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
+_eclasses_=distutils-r1	30044897f9a75ab6414bdb19aa3c07d4	multibuild	40fe59465edacd730c644ec2bc197809	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	ce1cd23cfdc1848e8e32743efe34f299	python-utils-r1	08e17157a6807add7db1f8d01e7e391f	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	xdg-utils	14d00d009167652b1fa363e55effe213
 _md5_=00fbe7e45f5f92620c9db682229c22dc

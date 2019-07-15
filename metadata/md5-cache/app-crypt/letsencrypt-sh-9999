@@ -6,5 +6,5 @@ HOMEPAGE=https://github.com/lukas2511/letsencrypt.sh
 LICENSE=MIT
 RDEPEND=sys-apps/coreutils net-misc/curl dev-libs/openssl
 SLOT=0
-_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
 _md5_=f51d30cab0b0beefd02ad43ae45540b3

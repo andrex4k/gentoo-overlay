@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
-DEPEND=!dedicated? ( media-libs/libsdl[X,sound,video] icu? ( dev-libs/icu:= ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib ) ) iconv? ( virtual/libiconv ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:* ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) >=sys-apps/sed-4 virtual/pkgconfig
+DEPEND=!dedicated? ( media-libs/libsdl[X,sound,video] icu? ( dev-libs/icu:= ) truetype? ( media-libs/fontconfig media-libs/freetype:2 sys-libs/zlib ) ) iconv? ( virtual/libiconv ) lzo? ( dev-libs/lzo:2 ) png? ( media-libs/libpng:* ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) virtual/pkgconfig
 DESCRIPTION=OpenTTD is a clone of Transport Tycoon Deluxe
 EAPI=6
 HOMEPAGE=http://www.openttd.org/
@@ -11,5 +11,5 @@ RDEPEND=!dedicated? ( media-libs/libsdl[X,sound,video] icu? ( dev-libs/icu:= ) t
 RESTRICT=test
 SLOT=0
 SRC_URI=http://binaries.openttd.org/releases/1.6.1/openttd-1.6.1-source.tar.xz
-_eclasses_=desktop	1b286a7e7143d8c4ec89cd0d2743a097	epatch	9a5f039771f143195164a15a4faa41a1	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	b43d08fe0771faf2f5e7be19c2789d33	gnome2-utils	29bb8f7881c95139e532a2d5e47ff834	ltprune	607e058da37aa6dabfa408b7d61da72e	multilib	97f470f374f2e94ccab04a2fb21d811e	preserve-libs	ef207dc62baddfddfd39a164d9797648	systemd	04e50685fbf3d89e5c67ac6a385dd595	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
+_eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	gnome2-utils	532371cfcba45b2ab0d2950547c97d95	ltprune	2729691420b6deeda2a90b1f1183fb55	multilib	1d91b03d42ab6308b5f4f6b598ed110e	preserve-libs	ef207dc62baddfddfd39a164d9797648	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	xdg-utils	14d00d009167652b1fa363e55effe213
 _md5_=ac20a42affc6167637ba4d4414c97c93

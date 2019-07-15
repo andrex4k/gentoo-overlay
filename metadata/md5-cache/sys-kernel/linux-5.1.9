@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=app-arch/xz-utils dev-lang/perl dracut? ( sys-kernel/dracut ) firmware? ( sys-kernel/linux-firmware ) headers? ( =sys-kernel/linux-headers-5.1 ) mheaders? ( app-admin/eselect-linux ) app-text/xmlto sys-apps/kmod sys-devel/bc >=sys-devel/gcc-4.9.3
+DESCRIPTION=Linux kernel
+EAPI=6
+HOMEPAGE=http://www.kernel.org/
+IUSE=savedconfig dracut firmware headers mheaders +symlink
+KEYWORDS=amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2 freedist
+RDEPEND=dracut? ( sys-kernel/dracut ) firmware? ( sys-kernel/linux-firmware ) headers? ( =sys-kernel/linux-headers-5.1 ) mheaders? ( app-admin/eselect-linux )
+RESTRICT=binchecks strip
+SLOT=5.1.9
+SRC_URI=mirror://kernel/linux/kernel/v5.x/linux-5.1.tar.xz mirror://kernel/linux/kernel/v5.x/patch-5.1.9.xz -> linux-patch-5.1.9.xz
+_eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	linux-kernel	7c5ffe6838e9bd9accee9dc53ee0c312	ltprune	2729691420b6deeda2a90b1f1183fb55	multilib	1d91b03d42ab6308b5f4f6b598ed110e	portability	2b88d3ecc35035a3b8ab628b49cafb0e	preserve-libs	ef207dc62baddfddfd39a164d9797648	savedconfig	1de3f25f1039cd1772fbf707ef87dbe3	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	2352c3fc97241f6a02042773c8287748
+_md5_=7fd06b920a274dc853b4a7e00cfb0866
