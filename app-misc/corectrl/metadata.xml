@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE 
+pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zratolale@gmail.com</email>
+    <name>andrex</name>
+  </maintainer>
+  <longdescription> n</longdescription>
+  <upstream>
+    <remote-id type="github">te</remote-id>
+    <bugs-to>
+    https://github.com/</bugs-to>
+  </upstream>
+</pkgmetadata>
