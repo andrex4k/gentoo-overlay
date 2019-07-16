@@ -26,7 +26,6 @@ RDEPEND="
 	dev-qt/qtnetwork:5=
 	dev-qt/qtwidgets:5=[xcb,png]
 	dev-qt/qtcharts:5=
-	#dev-libs/botan:2=
 	kde-frameworks/extra-cmake-modules:5=
 	dev-qt/qtcharts:5=
 	kde-frameworks/kauth:5=
