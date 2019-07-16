@@ -49,17 +49,20 @@ src_prepare() {
 	local CMAKE_MODULES_DIR=${S}/cmake
 }
 
-QA_TEXTRELS_x86="/usr/liblibcorectrl.so"
+
 
 S=${WORKDIR}/${PN}-v${PV}
 CMAKE_USE_DIR=${WORKDIR}/${PN}-v${PV}
 
 src_configure() {
-	ecmake	DLIBDIR="$(get_libdir)" \
-		DCMAKE_BUILD_TYPE=Release \
-		DBUILD_TESTING=OFF \
-		DCMAKE_INSTALL_PREFIX=/usr
-	#cmake-utils_src_configure
+	local mycmakeargs=(
+		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
+		-DLIBDIR="$(get_libdir)"
+                -DCMAKE_BUILD_TYPE=Release
+                -DBUILD_TESTING=OFF
+                -DCMAKE_INSTALL_PREFIX=/usr
+	)
+	cmake-utils_src_configure
 }
 
 src_install() {
