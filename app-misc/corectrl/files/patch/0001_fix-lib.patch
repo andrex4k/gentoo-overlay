@@ -1,0 +1,10 @@
+--- src/CMakeLists.txt	2019-07-17 23:46:05.035547734 +0800
++++ -	2019-07-17 23:50:05.868294591 +0800
+@@ -367,6 +367,6 @@
+ 
+ install(TARGETS corectrl corectrl_lib
+         RUNTIME DESTINATION bin
+-        LIBRARY DESTINATION lib)
++        LIBRARY DESTINATION lib${LIB_SUFFIX})
+ 
+ add_subdirectory(helper)
