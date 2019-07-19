@@ -5,9 +5,6 @@
 app-crypt/gnupg:smartcard - Build scdaemon software. Enables usage of OpenPGP cards. For other type of smartcards, try app-crypt/gnupg-pkcs11-scd.
 app-crypt/gnupg:usb - Build direct CCID access for scdaemon; requires dev-libs/libusb.
 dev-java/oracle-jdk-bin:commercial - Install features requiring a commercial license for production use
-dev-java/oracle-jdk-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
-dev-java/oracle-jdk-bin:gtk2 - Enable GTK+ 2 support in JavaFX
-dev-java/oracle-jdk-bin:gtk3 - Enable GTK+ 3 support in JavaFX
 dev-java/oracle-jdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/oracle-jdk-bin:javafx - Install JavaFX libraries
 dev-java/oracle-jdk-bin:jce - Install Java Cryptographic Extension Unlimited Strength Jurisdiction Policy Files

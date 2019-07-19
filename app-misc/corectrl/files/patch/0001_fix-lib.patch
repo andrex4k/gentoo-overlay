@@ -5,6 +5,6 @@
  install(TARGETS corectrl corectrl_lib
          RUNTIME DESTINATION bin
 -        LIBRARY DESTINATION lib)
-+        LIBRARY DESTINATION lib${LIB_SUFFIX})
++        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
  
  add_subdirectory(helper)

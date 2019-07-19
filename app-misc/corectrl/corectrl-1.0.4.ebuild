@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 LICENSE="GPL-3"
 
@@ -15,9 +15,9 @@ CMAKE_MIN_VERSION="3.3"
 
 inherit eutils xdg cmake-utils toolchain-funcs flag-o-matic multilib
 
-DESCRIPTION="CoreCtrl is a Free and Open Source GNU/Linux application that allows you to control with ease your computer hardware using application profiles. It aims to be flexible, comfortable and accessible to regular users."
+DESCRIPTION="CoreCtrl is control with ease your computer hardware using application profiles."
 HOMEPAGE="https://gitlab.com/corectrl"
-SRC_URI="https://gitlab.com/corectrl/corectrl/-/archive/v1.0.3/corectrl-v1.0.3.tar.gz"
+SRC_URI="https://gitlab.com/corectrl/corectrl/-/archive/v1.0.4/corectrl-v1.0.4.tar.gz"
 
 RDEPEND="
 	app-arch/xz-utils:=
@@ -45,10 +45,10 @@ DEPEND="
 	"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}/0001_fix-lib.patch"
+	#cmake-utils_src_prepare
+	epatch "${FILESDIR}/patch/0001_fix-lib.patch"
+	default
 }
-
-
 
 S=${WORKDIR}/${PN}-v${PV}
 CMAKE_USE_DIR=${WORKDIR}/${PN}-v${PV}
@@ -57,17 +57,18 @@ src_configure() {
 	local mycmakeargs=(
 		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
 		-DLIBDIR="$(get_libdir)"
-                -DCMAKE_BUILD_TYPE=Release
-                -DBUILD_TESTING=OFF
+		-DCMAKE_BUILD_TYPE=Release
+		-DBUILD_TESTING=OFF
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
 	cmake-utils_src_configure
+	default
 }
 
 src_install() {
+	#emake DESTDIR="$(BUILD_DIR)" PREFIX="/usr" LIBDIR="$(get_libdir)" install
 	cmake-utils_src_install
 	default
-
 }
 
 pkg_preinst() {
