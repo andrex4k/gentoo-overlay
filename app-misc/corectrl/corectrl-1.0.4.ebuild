@@ -50,7 +50,6 @@ DEPEND="
 src_prepare() {
 	#fix libdir path cmakef
 	epatch "${FILESDIR}/patch/0001_fix-lib.patch"
-	#sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	default
 }
 
@@ -65,6 +64,7 @@ src_configure() {
 		-DBUILD_TESTING=OFF
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
+	sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	cmake-utils_src_configure
 	default
 }
