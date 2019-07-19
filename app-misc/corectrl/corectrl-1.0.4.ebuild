@@ -65,6 +65,7 @@ src_configure() {
 		-DBUILD_TESTING=OFF
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
+	sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	cmake-utils_src_configure
 	default
 }
