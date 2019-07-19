@@ -16,7 +16,7 @@ CMAKE_MIN_VERSION="3.3"
 inherit eutils xdg cmake-utils toolchain-funcs flag-o-matic multilib
 
 DESCRIPTION="CoreCtrl is control with ease your computer hardware using application profiles."
-HOMEPAGE="https://gitlab.com/corectrl"
+HOMEPAGE="https://gitlab.com/corectrl/corectrl"
 SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 
 RDEPEND="
@@ -45,7 +45,7 @@ DEPEND="
 	"
 
 src_prepare() {
-	#cmake-utils_src_prepare
+	#fix libdir path cmakef
 	epatch "${FILESDIR}/patch/0001_fix-lib.patch"
 	default
 }
@@ -66,7 +66,6 @@ src_configure() {
 }
 
 src_install() {
-	#emake DESTDIR="$(BUILD_DIR)" PREFIX="/usr" LIBDIR="$(get_libdir)" install
 	cmake-utils_src_install
 	default
 }
