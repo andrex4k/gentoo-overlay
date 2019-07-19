@@ -9,7 +9,7 @@ KEYWORDS="~amd64 ~x86"
 
 SLOT="0"
 
-IUSE=""
+IUSE="opengl vulkaninfo"
 
 CMAKE_MIN_VERSION="3.3"
 
@@ -31,6 +31,9 @@ RDEPEND="
 	kde-frameworks/kauth:5=
 	kde-frameworks/karchive:5=
 	app-crypt/qca[botan]
+	kernel_linux? ( sys-apps/util-linux )
+	opengl? ( x11-apps/mesa-progs )
+	vulkaninfo? ( dev-util/vulkan-tools:=[vulkaninfo] )
 "
 DEPEND="
 	|| (
@@ -47,6 +50,7 @@ DEPEND="
 src_prepare() {
 	#fix libdir path cmakef
 	epatch "${FILESDIR}/patch/0001_fix-lib.patch"
+	#sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	default
 }
 
