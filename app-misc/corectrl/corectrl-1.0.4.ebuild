@@ -17,7 +17,7 @@ inherit eutils xdg cmake-utils toolchain-funcs flag-o-matic multilib
 
 DESCRIPTION="CoreCtrl is control with ease your computer hardware using application profiles."
 HOMEPAGE="https://gitlab.com/corectrl"
-SRC_URI="https://gitlab.com/corectrl/corectrl/-/archive/v1.0.4/corectrl-v1.0.4.tar.gz"
+SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 
 RDEPEND="
 	app-arch/xz-utils:=
