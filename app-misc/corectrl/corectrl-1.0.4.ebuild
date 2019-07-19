@@ -9,11 +9,11 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 SLOT="0"
 
-IUSE="opengl vulkaninfo kernel_linux"
+IUSE="debug doc kernel_linux opengl vulkaninfo"
 
 CMAKE_MIN_VERSION="3.3"
 
-inherit eutils xdg cmake-utils toolchain-funcs flag-o-matic multilib
+inherit xdg cmake-utils gnome2-utils
 
 DESCRIPTION="CoreCtrl is control with ease your computer hardware using application profiles."
 HOMEPAGE="https://gitlab.com/corectrl/corectrl"
@@ -61,12 +61,23 @@ src_configure() {
 		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
 		-DLIBDIR="$(get_libdir)"
 		-DCMAKE_BUILD_TYPE=Release
-		-DBUILD_TESTING=OFF
+		-DBUILD_TESTING="$(usex test)"
 		-DCMAKE_INSTALL_PREFIX=/usr
+		#-DCMAKE_DOC_DIR=/share/doc/${PF}
 	)
+	 if use debug; then
+                mycmakeargs+=(
+                        -DCMAKE_BUILD_TYPE=Debug
+                )
+        fi
 	sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	cmake-utils_src_configure
 	default
+}
+
+cmake_src_test() {
+        cmake-utils_src_test
+	cmake_src_test
 }
 
 src_install() {
@@ -79,9 +90,11 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	gnome2_icon_cache_update
 	xdg_pkg_postinst
 }
-
-pkg_postrm() {
-	xdg_pkg_postrm
+#for the future
+pkg_postrm ()  {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
