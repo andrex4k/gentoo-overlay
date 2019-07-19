@@ -9,7 +9,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 SLOT="0"
 
-IUSE="opengl vulkaninfo"
+IUSE="opengl vulkaninfo kernel_linux"
 
 CMAKE_MIN_VERSION="3.3"
 
@@ -50,7 +50,6 @@ DEPEND="
 src_prepare() {
 	#fix libdir path cmakef
 	epatch "${FILESDIR}/patch/0001_fix-lib.patch"
-	#sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	default
 }
 
