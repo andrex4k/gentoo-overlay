@@ -42,7 +42,7 @@ DEPEND="
 			>=sys-devel/clang-7.1.0
 		)
 	)
-
+	sys-apps/hwids
 	virtual/pkgconfig
 	${RDEPEND}
 	"
