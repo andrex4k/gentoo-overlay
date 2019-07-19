@@ -9,7 +9,7 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 SLOT="0"
 
-IUSE="debug doc kernel_linux opengl vulkaninfo"
+IUSE="debug doc kernel_linux opengl test vulkaninfo"
 
 CMAKE_MIN_VERSION="3.3"
 
