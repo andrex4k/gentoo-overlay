@@ -96,7 +96,6 @@ if [[ ${ETYPE} == kernel ]]; then
 		>=sys-devel/gcc-4.9.3
 	"
 fi
-KV_OUT_DIR="/usr/src/linux-${KV_FULL}"
 
 S="${WORKDIR}/linux-$(get_version_component_range 1-2)"
 
