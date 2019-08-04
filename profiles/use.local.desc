@@ -15,6 +15,40 @@ dev-libs/libcgroup:tools - Install the cgroup rules processing daemon and init/c
 dev-libs/libgpg-error:common-lisp - Install common-lisp files
 dev-libs/libsodium:asm - Enables assembly implementations
 dev-libs/libsodium:urandom - Use /dev/urandom instead of /dev/random
+media-gfx/blender:alembic - Enable im- and export of alembic (.abc) files through media-gfx/alembic
+media-gfx/blender:bullet - Enable Bullet (Physics Engine).
+media-gfx/blender:collada - Add support for Collada interchange format through media-libs/opencollada.
+media-gfx/blender:color-management - Enable color management via media-libs/opencolorio.
+media-gfx/blender:cuda - Build cycles renderer with nVidia CUDA support.
+media-gfx/blender:cycles - Build cycles renderer (requires media-libs/openimageio and dev-libs/boost).
+media-gfx/blender:dds - Adds DDS textures support to Blender.
+media-gfx/blender:doc - Build C and Python API documentation directly from the source code.
+media-gfx/blender:elbeem - Adds surface fluid simulation to Blender using El'Beem library.
+media-gfx/blender:game-engine - Adds Game Engine support to Blender.
+media-gfx/blender:headless - Build without graphical support (renderfarm, server mode only).
+media-gfx/blender:llvm - Enable features depending on llvm.
+media-gfx/blender:man - Build and install man pages.
+media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
+media-gfx/blender:opencl - Allow OpenCL Graphics Acceleration. This may require extra graphics card drivers.
+media-gfx/blender:openimageio - Enable OpenImageIO Support
+media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
+media-gfx/blender:openvdb - Add GPU preview rendering. Only works with nVidia cards.
+media-gfx/blender:osl - Add support for OpenShadingLanguage scripting.
+media-gfx/blender:player - Build the Blender Player. THis requires the Game engine.
+media-gfx/blender:test - Build the provided unit tests.
+media-gfx/blender:valgrind - Add support for memory debugging using dev-util/valgrind
+media-libs/libtgvoip:alsa - Enable ALSA support
+media-libs/libtgvoip:disable-reassembler - Apply reassembler disabling patch from tdesktop fork
+media-libs/libtgvoip:libcxx - Build with sys-devel/clang against sys-libs/libcxx
+media-libs/libtgvoip:pulseaudio - Enable PulseAudio support
+media-libs/libtgvoip:static-libs - Build static library
+media-libs/rlottie:cache - Enable cache support
+media-libs/rlottie:dumptree - Enable logging the rlottie tree
+media-libs/rlottie:libcxx - Build with sys-devel/clang and link against sys-libs/libcxx
+media-libs/rlottie:log - Enable logging
+media-libs/rlottie:module - Build Image module
+media-libs/rlottie:telegram-patches - Apply John Preston patches (you don't need that)
+media-libs/rlottie:threads - Support threading
 net-im/telegram-desktop:crash-report - Enable Crash Reporter
 net-im/telegram-desktop:custom-api-id - Use custom API ID and API HASH (you must set it either in make.conf or portage/env/{CAT}/{PN}.
 net-im/telegram-desktop:gtk3 - Keeps GTK3 stuff enabled

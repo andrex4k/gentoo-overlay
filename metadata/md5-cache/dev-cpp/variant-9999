@@ -1,0 +1,10 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=An header-only alternative to boost::variant for C++11 and C++14
+EAPI=7
+HOMEPAGE=https://github.com/mapbox/variant
+LICENSE=BSD
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1	patches	74f24c3892095dc5a844d6687c07bea2
+_md5_=1e8b60bc1dc138a97ec19898da0858be

@@ -65,10 +65,10 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr
 		#-DCMAKE_DOC_DIR=/share/doc/${PF}
 	)
-	 if use debug; then
+	if use debug; then
                 mycmakeargs+=(
                         -DCMAKE_BUILD_TYPE=Debug
-                )
+				)
         fi
 	sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
 	cmake-utils_src_configure
@@ -76,7 +76,7 @@ src_configure() {
 }
 
 cmake_src_test() {
-        cmake-utils_src_test
+	cmake-utils_src_test
 	cmake_src_test
 }
 
