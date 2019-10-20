@@ -1,14 +1,19 @@
-include(TelegramCodegenTools)
-
 set(TELEGRAM_GENERATED_SOURCES)
+set(CODEGEN_TOOLS_SUBPATH cmake/TelegramCodegen/Tools)
+set(CODEGEN_TOOLS_PATH ${CMAKE_BINARY_DIR}/${CODEGEN_TOOLS_SUBPATH})
+add_subdirectory(${CMAKE_SOURCE_DIR}/${CODEGEN_TOOLS_SUBPATH})
 
 add_custom_command(
 	OUTPUT
 		${GENERATED_DIR}/scheme.h
 		${GENERATED_DIR}/scheme.cpp
-	COMMAND python ${TELEGRAM_SOURCES_DIR}/codegen/scheme/codegen_scheme.py -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/scheme.tl
-	DEPENDS ${CMAKE_SOURCE_DIR}/Resources/scheme.tl
-	COMMENT "Codegen scheme.tl"
+	COMMAND python ${TELEGRAM_SOURCES_DIR}/codegen/scheme/codegen_scheme.py -o${GENERATED_DIR}
+		${TELEGRAM_RESOURCES_DIR}/tl/mtproto.tl
+		${TELEGRAM_RESOURCES_DIR}/tl/api.tl
+	DEPENDS
+		${CMAKE_SOURCE_DIR}/Resources/tl/mtproto.tl
+		${CMAKE_SOURCE_DIR}/Resources/tl/api.tl
+	COMMENT "Codegen tl resources"
 )
 list(APPEND TELEGRAM_GENERATED_SOURCES
 	${GENERATED_DIR}/scheme.h
@@ -39,7 +44,7 @@ foreach(STYLE ${STYLES})
 	# style generator does not like '-' in file path, so let's use relative paths...
 	add_custom_command(
 		OUTPUT ${THIS_GENERATED_STYLES}
-		COMMAND ${CMAKE_BINARY_DIR}/codegen_style -IResources -ISourceFiles -o${GENERATED_DIR}/styles ${STYLE}
+		COMMAND ${CODEGEN_TOOLS_PATH}/codegen_style -IResources -ISourceFiles -o${GENERATED_DIR}/styles ${STYLE}
 		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 		DEPENDS codegen_style ${STYLE}
 		COMMENT "Codegen style ${STYLE_FILENAME}"
@@ -54,7 +59,7 @@ add_custom_command(
 		${GENERATED_DIR}/emoji.cpp
 		${GENERATED_DIR}/emoji_suggestions_data.h
 		${GENERATED_DIR}/emoji_suggestions_data.cpp
-	COMMAND ${CMAKE_BINARY_DIR}/codegen_emoji -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/emoji_autocomplete.json
+		COMMAND ${CODEGEN_TOOLS_PATH}/codegen_emoji -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/emoji_autocomplete.json
 	DEPENDS codegen_emoji
 	COMMENT "Codegen emoji"
 )
@@ -70,7 +75,7 @@ add_custom_command(
 	OUTPUT
 		${GENERATED_DIR}/lang_auto.h
 		${GENERATED_DIR}/lang_auto.cpp
-	COMMAND ${CMAKE_BINARY_DIR}/codegen_lang -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/langs/lang.strings
+		COMMAND ${CODEGEN_TOOLS_PATH}/codegen_lang -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/langs/lang.strings
 	DEPENDS codegen_lang
 	COMMENT "Codegen lang"
 )
@@ -83,7 +88,7 @@ add_custom_command(
 	OUTPUT
 		${GENERATED_DIR}/numbers.h
 		${GENERATED_DIR}/numbers.cpp
-	COMMAND ${CMAKE_BINARY_DIR}/codegen_numbers -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/numbers.txt
+		COMMAND ${CODEGEN_TOOLS_PATH}/codegen_numbers -o${GENERATED_DIR} ${TELEGRAM_RESOURCES_DIR}/numbers.txt
 	DEPENDS codegen_numbers
 	COMMENT "Codegen numbers"
 )
