@@ -61,7 +61,7 @@ src_compile() {
 	# (2) Build process shouldn't die, as this is alpha code and some
 	#     things are expected not to compile.  So we use make instead
 	#     emake, which dies on non-zero return value from build.
-	#MAKEOPTS="${MAKEOPTS} -j1" make World || true
+	MAKEOPTS="${MAKEOPTS} " make World || true
 }
 
 src_install() {
