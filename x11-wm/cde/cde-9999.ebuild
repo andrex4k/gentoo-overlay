@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit git-r3
+inherit git-r3 multilib
 
 DESCRIPTION="The Common Desktop Environment, the classic UNIX desktop"
 HOMEPAGE="http://cdesktopenv.sourceforge.net/"
@@ -44,6 +44,7 @@ DEPEND="x11-libs/libXt
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	eapply_user
 	mkdir -p imports/x11/include
 	cd imports/x11/include
 	ln -s /usr/include/X11 .
@@ -60,7 +61,7 @@ src_compile() {
 	# (2) Build process shouldn't die, as this is alpha code and some
 	#     things are expected not to compile.  So we use make instead
 	#     emake, which dies on non-zero return value from build.
-	MAKEOPTS="${MAKEOPTS} -j1" make World || true
+	#MAKEOPTS="${MAKEOPTS} -j1" make World || true
 }
 
 src_install() {
@@ -86,9 +87,10 @@ src_install() {
 	# as much as possible (more probably requires patching)
 	einfo "Relocating some files to comply with FHS as much as"
 	einfo "possible.  More probably requires patching ..."
-	mv -v "${D}"/usr/dt/{bin,lib} "${D}"/usr/
+	mv -v "${D}"/usr/dt/bin "${D}"/usr/ || die "mv failed"
+	mv "${D}/usr/dt/lib" "${D}/usr/$(get_libdir)" || die "mv failed"
 	mkdir -pv "${D}"/usr/share/man
-	mv -v "${D}"/usr/dt/share/man/* "${D}"/usr/share/man/
+	mv -v "${D}"/usr/dt/share/man/* "${D}"/usr/share/man/ || die "mv failed"
 	ln -sfv "${D}"/usr/share/man "${D}"/usr/dt/man
 	#
 	# Misc directories
