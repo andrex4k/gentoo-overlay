@@ -58,7 +58,7 @@ CMAKE_USE_DIR=${WORKDIR}/${PN}-v${PV}
 
 src_configure() {
 	local mycmakeargs=(
-		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
+		-DLIB_INSTALL_DIR="/usr/$(get_abi_LIBDIR)"
 		-DLIBDIR="$(get_libdir)"
 		-DCMAKE_BUILD_TYPE=Release
 		-DBUILD_TESTING="$(usex test)"
