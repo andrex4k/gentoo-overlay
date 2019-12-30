@@ -7,7 +7,7 @@ EAPI=6
 ETYPE="kernel"
 
 inherit linux-kernel
-
+SRC_URI="${KERNEL_URI}"
 src_prepare() {
 	# Set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param).
 	# Remove this when a Kconfig knob is made available by upstream
