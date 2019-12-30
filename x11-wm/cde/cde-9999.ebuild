@@ -29,7 +29,7 @@ DEPEND="x11-libs/libXt
 		x11-libs/libXScrnSaver
 		net-libs/libtirpc
 		x11-apps/xset
-		media-libs/jpeg:62
+		|| (media-libs/jpeg:62 >=media-libs/libjpeg-turbo-1.3.0-r2:0)
 		media-libs/freetype:2
 		dev-lang/tcl
 		app-shells/ksh
