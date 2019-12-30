@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=7
 
 inherit git-r3
 
@@ -12,7 +12,7 @@ SRC_URI=""
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 EGIT_REPO_URI="git://git.code.sf.net/p/cdesktopenv/code"
@@ -29,7 +29,7 @@ DEPEND="x11-libs/libXt
 		x11-libs/libXScrnSaver
 		net-libs/libtirpc
 		x11-apps/xset
-		|| (media-libs/jpeg:62 >=media-libs/libjpeg-turbo-1.3.0-r2:0)
+		|| ( media-libs/jpeg:62 >=media-libs/libjpeg-turbo-1.3.0-r2:0 )
 		media-libs/freetype:2
 		dev-lang/tcl
 		app-shells/ksh
