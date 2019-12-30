@@ -18,8 +18,7 @@ IUSE=""
 EGIT_REPO_URI="git://git.code.sf.net/p/cdesktopenv/code"
 S="${WORKDIR}/${P}/cde"
 
-DEPEND="x11-libs/libXp
-		x11-libs/libXt
+DEPEND="x11-libs/libXt
 		x11-libs/libXmu
 		x11-libs/libXft
 		x11-libs/libXinerama
