@@ -9,9 +9,11 @@ inherit multilib
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="git://git.code.sf.net/p/cdesktopenv/code"
+	S="${WORKDIR}/${P}/cde"
 else
 	SRC_URI="https://netcologne.dl.sourceforge.net/project/cdesktopenv/src/${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~ppc64 ~x86 ~x64-macos"
+	S="${WORKDIR}/${P}"
 fi
 
 DESCRIPTION="The Common Desktop Environment, the classic UNIX desktop"
