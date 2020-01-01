@@ -24,8 +24,6 @@ SLOT="0"
 
 IUSE=""
 
-S="${WORKDIR}/${P}/cde"
-
 DEPEND="x11-libs/libXt
 		x11-libs/libXmu
 		x11-libs/libXft
