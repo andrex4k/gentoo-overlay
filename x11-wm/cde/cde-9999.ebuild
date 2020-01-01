@@ -1,6 +1,5 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=7
 
@@ -29,7 +28,7 @@ DEPEND="x11-libs/libXt
 		x11-libs/libXScrnSaver
 		net-libs/libtirpc
 		x11-apps/xset
-		|| ( media-libs/jpeg:62 >=media-libs/libjpeg-turbo-1.3.0-r2:0 )
+		virtual/jpeg
 		media-libs/freetype:2
 		dev-lang/tcl
 		app-shells/ksh
