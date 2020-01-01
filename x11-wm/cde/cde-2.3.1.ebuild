@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=7
+
 inherit multilib
 
 if [[ ${PV} == "9999" ]] ; then

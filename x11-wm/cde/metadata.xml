@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>zratolale@gmail.com</email>
+    <description>If you have any issues, please contact me, or try
+    to find me in IRC on Freenode</description>
+    <name>Andrey G. Antonov (andrex) </name>
+  </maintainer>
+  <longdescription>The Common Desktop Environment was created by a collaboration of Sun, HP, IBM, DEC, SCO, Fujitsu and Hitachi. Used on a selection of commercial UNIXs, it is now available as open-source software for the first time.
+</longdescription>
+</pkgmetadata>
