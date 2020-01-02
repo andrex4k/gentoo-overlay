@@ -67,7 +67,7 @@ src_compile() {
 	# (2) Build process shouldn't die, as this is alpha code and some
 	#     things are expected not to compile.  So we use make instead
 	#     emake, which dies on non-zero return value from build.
-	MAKEOPTS="${MAKEOPTS} " make -j1 World IMAKE_DEFINES='-DDtLocalesToBuild="en_US.UTF-8"' || true
+	MAKEOPTS="${MAKEOPTS} " make World || true
 }
 
 src_install() {
@@ -93,11 +93,11 @@ src_install() {
 	# as much as possible (more probably requires patching)
 	einfo "Relocating some files to comply with FHS as much as"
 	einfo "possible.  More probably requires patching ..."
-	# mv -v "${D}"/usr/dt/bin "${D}"/usr/ || die "mv failed"
-	# mv "${D}/usr/dt/lib" "${D}/usr/$(get_libdir)" || die "mv failed"
-	# mkdir -pv "${D}"/usr/share/man
-	# mv -v "${D}"/usr/dt/share/man/* "${D}"/usr/share/man/ || die "mv failed"
-	# ln -sfv "${D}"/usr/share/man "${D}"/usr/dt/man
+	mv -v "${D}"/usr/dt/bin "${D}"/usr/ || die "mv failed"
+	mv "${D}/usr/dt/lib" "${D}/usr/$(get_libdir)" || die "mv failed"
+	mkdir -pv "${D}"/usr/share/man
+	mv -v "${D}"/usr/dt/share/man/* "${D}"/usr/share/man/ || die "mv failed"
+	ln -sfv "${D}"/usr/share/man "${D}"/usr/dt/man
 	#
 	# Misc directories
 	#
@@ -108,7 +108,7 @@ src_install() {
 	dodir /usr/spool/calendar
 	#
 	# env.d for /usr/dt paths
-	doenvd "${FILESDIR}"/95cde  # NO LONGER REQUIRED WITH mv ABOVE
+	#doenvd "${FILESDIR}"/95cde  # NO LONGER REQUIRED WITH mv ABOVE
 }
 
 pkg_postinst() {
