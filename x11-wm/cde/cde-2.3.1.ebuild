@@ -50,10 +50,10 @@ DEPEND="x11-libs/libXt
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	eapply_user
 	mkdir -p imports/x11/include
 	cd imports/x11/include
 	ln -s /usr/include/X11 .
+	eapply_user
 }
 
 src_compile() {
