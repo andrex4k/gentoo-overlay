@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 eutils flag-o-matic toolchain-funcs autotools
+inherit git-r3 eutils flag-o-matic toolchain-funcs autotools
 
 DESCRIPTION="The GNU Privacy Guard, a GPL pgp replacement"
 HOMEPAGE="http://www.gnupg.org/"

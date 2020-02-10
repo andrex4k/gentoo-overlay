@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 eutils autotools
+inherit git-r3 eutils autotools
 
 DESCRIPTION="X.509 and CMS (PKCS#7) library"
 HOMEPAGE="http://www.gnupg.org/related_software/libksba"

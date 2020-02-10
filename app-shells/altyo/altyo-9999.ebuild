@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2 vala
+inherit git-r3 vala
 
 #EGIT_COMMIT="${PN}-${PV}-1"
 DESCRIPTION="PVala / GTK3 drop-down terminal emulator"

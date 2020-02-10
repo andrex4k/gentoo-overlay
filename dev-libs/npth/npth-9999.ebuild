@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 eutils autotools
+inherit git-r3 eutils autotools
 
 DESCRIPTION="GnuPG's New Portable Threads Library (nPth)"
 HOMEPAGE="http://www.gnupg.org/"

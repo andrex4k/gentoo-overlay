@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 eutils autotools
+inherit git-r3 eutils autotools
 
 DESCRIPTION="Contains error handling functions used by GnuPG software"
 HOMEPAGE="http://www.gnupg.org/related_software/libgpg-error"

@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 autotools eutils
+inherit git-r3 autotools eutils
 
 DESCRIPTION="General purpose crypto library based on the code used in GnuPG"
 HOMEPAGE="http://www.gnupg.org/"

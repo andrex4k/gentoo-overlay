@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit git-2 eutils autotools
+inherit git-r3 eutils autotools
 
 DESCRIPTION="IPC library used by GnuPG and GPGME"
 HOMEPAGE="http://www.gnupg.org/related_software/libassuan/index.en.html"

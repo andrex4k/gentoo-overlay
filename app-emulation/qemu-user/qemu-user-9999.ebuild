@@ -8,7 +8,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://github.com/susematz/qemu.git"
 	EGIT_BRANCH="aarch64-1.6"
 	EGIT_PROJECT="qemu.susematz"
-	GIT_ECLASS="git-2"
+	GIT_ECLASS="git-r3"
 fi
 
 inherit eutils flag-o-matic pax-utils toolchain-funcs ${GIT_ECLASS}
