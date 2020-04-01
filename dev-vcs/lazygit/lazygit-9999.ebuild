@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit golang-build xdg-utils
+inherit golang-build
 
 EGO_PN="github.com/jesseduffield/lazygit"
 COMMIT="Latest"
@@ -25,11 +25,6 @@ IUSE=""
 
 DEPEND=">=dev-lang/go-1.14"
 RDEPEND="dev-vcs/git"
-
-src_prepare() {
-	xdg_environment_reset
-	default
-}
 
 src_compile() {
 	if [[ ${PV} == "9999" ]]; then
