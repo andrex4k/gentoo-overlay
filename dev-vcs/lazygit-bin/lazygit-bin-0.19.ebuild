@@ -12,6 +12,9 @@ SLOT="0"
 IUSE=""
 RESTRICT="mirror"
 KEYWORDS="~amd64"
+
+RDEPEND="dev-vcs/git"
+
 S="${WORKDIR}"
 
 src_unpack() {
