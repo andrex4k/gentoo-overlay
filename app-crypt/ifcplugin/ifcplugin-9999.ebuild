@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=7
 
 DESCRIPTION="Plugin for gosuslugi.ru auth"
 HOMEPAGE="http://gosuslugi.ru"
 SRC_URI="
-	amd64?	( https://esia.gosuslugi.ru/sia-web/htdocs/plugin/IFCPlugin-x86_64.deb )
+	amd64?	( https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin-x86_64.deb )
 	x86?	( https://esia.gosuslugi.ru/sia-web/htdocs/plugin/IFCPlugin-i386.deb )"
 
 RESTRICT="strip"
