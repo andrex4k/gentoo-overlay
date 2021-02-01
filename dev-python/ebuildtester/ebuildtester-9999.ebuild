@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{7..9} )=( python3_{7..9} )
 
 inherit git-r3 bash-completion-r1 distutils-r1
 

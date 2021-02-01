@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+PYTHON_COMPAT=( python3_{7..9} )=( python3_{7..9} )
 
 MY_P=${P/_/-}
 
