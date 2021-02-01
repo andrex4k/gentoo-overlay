@@ -7,7 +7,7 @@ EAPI=7
 # support for python 3.9.
 # For details see
 # https://github.com/python-rope/rope/issues/299
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

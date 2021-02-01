@@ -5,7 +5,7 @@ EAPI=7
 
 # At the moment, PyPy3 doesn't have a dataclasses module
 # It can probably be added when PyPy3.7 is stable
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

@@ -4,7 +4,7 @@
 EAPI=6
 
 MATE_LA_PUNT="yes"
-PYTHON_COMPAT=( python3_{7..9} )=( python{3_7,3_8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit mate python-single-r1
 

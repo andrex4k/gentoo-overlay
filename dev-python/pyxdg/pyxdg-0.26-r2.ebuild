@@ -5,7 +5,7 @@ EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS="no"
 MY_P="${PN}-rel-${PV}"
-PYTHON_COMPAT=( python3_{7..9} )=( python{3_7,3_8,3_9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

@@ -4,7 +4,7 @@
 EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7..9} pypy3  )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

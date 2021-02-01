@@ -4,7 +4,7 @@
 EAPI=7
 
 # Included in Python >= 3.8
-PYTHON_COMPAT=( python3_{7..9} )=( pypy3 python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

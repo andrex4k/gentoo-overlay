@@ -4,7 +4,7 @@
 EAPI=7
 
 # boost is lacking py39 support as of 20200605
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit cmake python-single-r1
 
 DESCRIPTION="IlmBase Python bindings"

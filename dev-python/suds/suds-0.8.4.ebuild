@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_REQ_USE="xml(+)"
 # Tests fail with PyPy3
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 

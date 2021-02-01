@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )=( python3_7 )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1
 
 DESCRIPTION="A library to do [jobs, tasks, flows] in a HA manner using different backends"

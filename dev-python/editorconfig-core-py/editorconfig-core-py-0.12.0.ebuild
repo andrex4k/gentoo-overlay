@@ -4,7 +4,7 @@
 EAPI=6
 
 TESTVER="abb579e00f2deeede91cb485e53512efab9c6474"
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1
 
 DESCRIPTION="Clone of EditorConfig core written in Python"

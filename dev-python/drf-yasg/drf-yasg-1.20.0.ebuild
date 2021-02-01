@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1
 
 DESCRIPTION="Automated generation of Swagger/OpenAPI 2.0 schemas from Django Rest framework"

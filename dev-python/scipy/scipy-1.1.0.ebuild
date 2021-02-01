@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{7..9} )=( python3_7 )
+PYTHON_COMPAT=( python3_{7..9} )
 PYTHON_REQ_USE="threads(+)"
 
 DOC_PV=${PV}
