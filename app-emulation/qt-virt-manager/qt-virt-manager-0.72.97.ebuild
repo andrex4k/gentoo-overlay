@@ -37,6 +37,7 @@ DEPEND="
 	net-misc/spice-gtk
 	net-libs/libvncserver
 	app-emulation/libvirt
+	kde-apps/krdc:5
 "
 RDEPEND="${DEPEND}"
 
