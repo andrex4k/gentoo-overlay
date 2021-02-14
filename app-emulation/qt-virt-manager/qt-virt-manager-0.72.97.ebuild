@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/F1ash/qt-virt-manager.git"
