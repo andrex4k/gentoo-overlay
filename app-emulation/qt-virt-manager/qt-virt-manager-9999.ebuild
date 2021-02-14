@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit cmake
+CMAKE_MAKEFILE_GENERATOR="emake"
+
+inherit cmake-utils
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/F1ash/qt-virt-manager.git"
@@ -13,7 +15,7 @@ if [[ ${PV} == "9999" ]] ; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/F1ash/qt-virt-manager/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS=""
+	KEYWORDS="amd64 x86"
 fi
 
 DESCRIPTION="A GUI application for managing virtual machines"
@@ -32,7 +34,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	dev-qt/qtnetwork:5
 	>=x11-libs/qtermwidget-0.7.0
-	smartcard? ( >=app-emulation/libcacard-2.5.0 )
+	smartcard? ( >=app-emulation/libcacard-2.6.0 )
 	dev-libs/glib
 	net-misc/spice-gtk
 	net-libs/libvncserver
@@ -40,11 +42,12 @@ DEPEND="
 	kde-apps/krdc:5
 "
 RDEPEND="${DEPEND}"
-
+BUILD_DIR="${WORKDIR}/${P}"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT_VERSION=5
 		-DWITH_LIBCACARD="$(usex smartcard ON OFF)"
+		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
 	cmake-utils_src_configure
 }
