@@ -2,9 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>mva@gentoo.org</email>
+      <email>zratolale@gmail.com</email>
     <description>Also, you can find me on IRC (FreeNode) as mva, or in Telegram as @mva_name</description>
-    <name>Vadim A. Misbakh-Soloviov</name>
+    <name>andrex</name>
   </maintainer>
   <longdescription>Telegram Desktop Client</longdescription>
   <use>
