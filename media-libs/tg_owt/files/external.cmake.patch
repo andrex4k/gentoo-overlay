@@ -1,0 +1,37 @@
+--- a/cmake/external.cmake
++++ b/cmake/external.cmake
+@@ -48,12 +48,16 @@
+         pkg_check_modules(AVUTIL REQUIRED libavutil)
+         pkg_check_modules(SWSCALE REQUIRED libswscale)
+         pkg_check_modules(SWRESAMPLE REQUIRED libswresample)
++        pkg_check_modules(YUV REQUIRED libyuv)
++        pkg_check_modules(VPX REQUIRED libvpx)
+         target_include_directories(${target_name} PRIVATE
+             ${AVCODEC_INCLUDE_DIRS}
+             ${AVFORMAT_INCLUDE_DIRS}
+             ${AVUTIL_INCLUDE_DIRS}
+             ${SWSCALE_INCLUDE_DIRS}
+             ${SWRESAMPLE_INCLUDE_DIRS}
++            ${YUV_INCLUDE_DIRS}
++            ${VPX_INCLUDE_DIRS}
+         )
+         if (TG_OWT_PACKAGED_BUILD_FFMPEG_STATIC)
+             target_link_libraries(${target_name}
+@@ -63,6 +67,8 @@
+                 ${AVUTIL_STATIC_LINK_LIBRARIES}
+                 ${SWSCALE_STATIC_LINK_LIBRARIES}
+                 ${SWRESAMPLE_STATIC_LINK_LIBRARIES}
++                ${YUV_STATIC_LINK_LIBRARIES}
++                ${VPX_STATIC_LINK_LIBRARIES}
+             )
+         else()
+             target_link_libraries(${target_name}
+@@ -72,6 +78,8 @@
+                 ${AVUTIL_LINK_LIBRARIES}
+                 ${SWSCALE_LINK_LIBRARIES}
+                 ${SWRESAMPLE_LINK_LIBRARIES}
++                ${YUV_LINK_LIBRARIES}
++                ${VPX_LINK_LIBRARIES}
+             )
+         endif()
+     else()

@@ -1,0 +1,12 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,9 +45,7 @@
+ include(cmake/librnnoise.cmake)
+ include(cmake/libsrtp.cmake)
+ include(cmake/libusrsctp.cmake)
+-include(cmake/libvpx.cmake)
+ include(cmake/libwebrtcbuild.cmake)
+-include(cmake/libyuv.cmake)
+ if (NOT WIN32 AND NOT APPLE)
+     include(cmake/libevent.cmake)
+ endif()
