@@ -48,7 +48,7 @@
  QSize Message::performCountOptimalSize() {
  	const auto item = message();
 +	PeerData* pd = item->from();
-+	if (pd->isUser() && pd->asUser()->isBlocked()) return QSize(0,0);
++	if (pd->isUser() && pd->asUser()->isBlocked()) return;
  	const auto media = this->media();
  
  	auto maxWidth = 0;
@@ -57,7 +57,7 @@
  
  	const auto item = message();
 +	PeerData* pd = item->from();
-+	if (pd->isUser() && pd->asUser()->isBlocked()) return QSize(0,0);
++	if (pd->isUser() && pd->asUser()->isBlocked()) return;
  	const auto media = this->media();
  
  	const auto outbg = hasOutLayout();
