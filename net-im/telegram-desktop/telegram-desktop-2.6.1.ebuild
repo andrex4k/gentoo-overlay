@@ -35,7 +35,7 @@ fi
 
 LICENSE="GPL-3-with-openssl-exception"
 SLOT="0"
-IUSE="custom-api-id +dbus debug gtk libcxx libressl lto +pulseaudio +spell system-gsl system-expected system-fonts system-libtgvoip system-rlottie system-variant test +wayland +webrtc wide-baloons +X"
+IUSE="custom-api-id +dbus debug gtk libcxx libressl lto +pulseaudio +spell system-gsl system-expected system-fonts system-libtgvoip system-rlottie system-variant test +toxi +wayland +webrtc wide-baloons +X"
 
 COMMON_DEPEND="
 	app-arch/lz4:=
@@ -228,7 +228,7 @@ src_prepare() {
 #		echo > cmake/options_linux.cmake
 #		^ Maybe just wipe it out instead of trying to fix?
 #		^ There are not so mush useful compiler flags, actually.
-
+	use toxi && local PATCHES=( "${FILESDIR}/toxi.patch" )
 	patches_src_prepare
 #	cmake_src_prepare
 #	^ to be used when will be ported to gentoo repo
