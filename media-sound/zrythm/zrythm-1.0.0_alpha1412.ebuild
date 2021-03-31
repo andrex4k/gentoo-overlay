@@ -19,11 +19,13 @@ SLOT="0"
 DEPEND="
 	app-arch/zstd
 	dev-libs/libcyaml
+	dev-libs/libbacktrace
 	>=dev-libs/reproc-14.1.0
 	dev-scheme/guile
 	kde-frameworks/breeze-icons
 	media-libs/lilv
 	>=media-libs/libaudec-0.2.3
+	media-libs/libsoundio
 	media-libs/chromaprint
 	media-libs/rubberband
 	sci-libs/fftw:*[threads]
@@ -32,8 +34,16 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=dev-util/meson-0.55.0
+	>=dev-util/meson-0.57.0
 "
+#PATCHES=(
+#	"${FILESDIR}/${P}-fix_version.patch"
+#)
+
+src_prepare() {
+	eapply "${FILESDIR}/${P}-fix_version.patch"
+	eapply_user
+}
 
 src_install() {
 	DESTDIR="${D}" eninja -C "${BUILD_DIR}" install
