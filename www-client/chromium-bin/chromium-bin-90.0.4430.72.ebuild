@@ -14,7 +14,7 @@ HOMEPAGE="https://chromium.org/"
 
 MY_P=${P}-1
 
-SRC_URI=":https://dev.gentoo.org/~sultan/distfiles/www-client/chromium-bin/${MY_P}-common.tar.xz
+SRC_URI="https://dev.gentoo.org/~sultan/distfiles/www-client/chromium-bin/${MY_P}-common.tar.xz
 	https://dev.gentoo.org/~sultan/distfiles/www-client/chromium-bin/${MY_P}-l10n.tar.xz
 	devtools? ( https://dev.gentoo.org/~sultan/distfiles/www-client/chromium-bin/${MY_P}-resources.tar.xz )
 arm64? (
