@@ -187,11 +187,6 @@ src_install() {
 
 	pax-mark m "${CHROMIUM_BIN_HOME}/chrome"
 
-	# Symlink Widevine CDM
-	if use widevine && use amd64; then
-		dosym "../../usr/$(get_libdir)/chromium-browser/WidevineCdm" "${CHROMIUM_BIN_HOME}/WidevineCdm"
-	fi
-
 	# Install launcher
 	exeinto "${CHROMIUM_BIN_HOME}"
 	doexe "${FILESDIR}/chromium-bin-launcher.sh"
