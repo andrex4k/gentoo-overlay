@@ -3,9 +3,11 @@
 
 EAPI=7
 
-inherit go-module
-
-GO_SUM=(
+inherit golang-single
+GOLANG_PKG_IMPORTPATH="github.com/zyedidia"
+GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_HAVE_TEST=1
+GOLANG_PKG_DEPENDENCIES=(
 		"github.com/blang/semver v3.5.1+incompatible"
 		"github.com/blang/semver v3.5.1+incompatible/go.mod"
 		"github.com/chzyer/logex v1.1.10/go.mod"
@@ -93,20 +95,18 @@ GO_SUM=(
 		"layeh.com/gopher-luar v1.0.7/go.mod"
 )
 
-go-module_set_globals
-
 DESCRIPTION="A modern and intuitive terminal-based text editor"
 HOMEPAGE="https://github.com/zyedidia/micro"
-SRC_URI="
-	https://github.com/zyedidia/micro/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	${EGO_SUM_SRC_URI}
-"
+#SRC_URI="
+#	https://github.com/zyedidia/micro/archive/v${PV}.tar.gz -> ${P}.tar.gz
+#	${EGO_SUM_SRC_URI}
+#"
 
 LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0"
 SLOT="0"
 KEYWORDS=""
 IUSE="wayland"
-RESTRICT="mirror"
+#RESTRICT="mirror"
 
 RDEPEND="
 	!wayland? (
@@ -115,9 +115,22 @@ RDEPEND="
 	)
 	wayland? ( gui-apps/wl-clipboard )
 "
+src_prepare() {
+	golang-single_src_prepare
+
+	golang_fix_importpath_alias \
+		"github.com/zyedidia/micro" \
+		"github.com/zyedidia/micro/v2"
+}
 
 src_compile() {
+	rm "${S}"/go.mod || die
+	rm "${S}"/go.sum || die
 	emake build
+}
+
+src_test() {
+	emake test || die
 }
 
 src_install() {
