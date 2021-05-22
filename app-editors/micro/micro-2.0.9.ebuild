@@ -104,7 +104,7 @@ SRC_URI="
 
 LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS=""
 IUSE="wayland"
 RESTRICT="mirror"
 
@@ -117,7 +117,7 @@ RDEPEND="
 "
 
 src_compile() {
-	go build -v -work -x -o ${PN} ./cmd/micro || die
+	emake build
 }
 
 src_install() {
