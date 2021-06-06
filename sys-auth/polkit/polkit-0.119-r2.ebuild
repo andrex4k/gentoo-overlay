@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,18 +7,22 @@ inherit autotools pam pax-utils systemd xdg-utils
 
 DESCRIPTION="Policy framework for controlling privileges for system-wide services"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/polkit https://gitlab.freedesktop.org/polkit/polkit"
-SRC_URI="https://www.freedesktop.org/software/${PN}/releases/${P}.tar.gz"
+SRC_URI="
+	https://www.freedesktop.org/software/${PN}/releases/${P}.tar.gz
+	https://github.com/ferion11/danrepo/releases/download/polkit_patchs/polkit-${PV}-duktape.patch.gz
+"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-IUSE="consolekit elogind examples gtk +introspection kde nls pam selinux systemd test"
+KEYWORDS="amd64 arm64 x86"
+IUSE="duktape elogind examples gtk +introspection jit kde nls pam selinux systemd test"
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="^^ ( consolekit elogind systemd )"
+REQUIRED_USE="^^ ( elogind systemd )"
 
 BDEPEND="
 	acct-user/polkitd
+	acct-group/polkitd
 	app-text/docbook-xml-dtd:4.1.2
 	app-text/docbook-xsl-stylesheets
 	dev-libs/gobject-introspection-common
@@ -31,7 +35,8 @@ BDEPEND="
 	introspection? ( dev-libs/gobject-introspection )
 "
 DEPEND="
-	dev-lang/duktape
+	!duktape? ( dev-lang/spidermonkey:78[-debug] )
+	duktape? ( dev-lang/duktape )
 	dev-libs/glib:2
 	dev-libs/expat
 	elogind? ( sys-auth/elogind )
@@ -46,7 +51,6 @@ RDEPEND="${DEPEND}
 	selinux? ( sec-policy/selinux-policykit )
 "
 PDEPEND="
-	consolekit? ( sys-auth/consolekit[policykit] )
 	gtk? ( || (
 		>=gnome-extra/polkit-gnome-0.105
 		>=lxde-base/lxsession-0.5.2
@@ -59,7 +63,6 @@ DOCS=( docs/TODO HACKING NEWS README )
 PATCHES=(
 	# bug 660880
 	"${FILESDIR}"/polkit-0.115-elogind.patch
-	"${FILESDIR}"/polkit-0.116-duktape.patch
 )
 
 QA_MULTILIB_PATHS="
@@ -67,6 +70,12 @@ QA_MULTILIB_PATHS="
 	usr/lib/polkit-1/polkitd"
 
 src_prepare() {
+	if use duktape ; then
+		PATCHES+=(
+			#from https://gitlab.freedesktop.org/polkit/polkit/merge_requests/35
+			"${WORKDIR}"/polkit-${PV}-duktape.patch
+		)
+	fi
 	default
 
 	sed -i -e 's|unix-group:wheel|unix-user:0|' src/polkitbackend/*-default.rules || die #401513
@@ -93,7 +102,6 @@ src_configure() {
 		--enable-man-pages
 		--disable-gtk-doc
 		--disable-examples
-		--with-duktape
 		$(use_enable elogind libelogind)
 		$(use_enable introspection)
 		$(use_enable nls)
@@ -104,6 +112,11 @@ src_configure() {
 		$(use_enable test)
 		--with-os-type=gentoo
 	)
+	if use duktape ; then
+		myeconfargs+=(
+			--with-duktape
+		)
+	fi
 	econf "${myeconfargs[@]}"
 }
 
@@ -118,8 +131,8 @@ src_install() {
 	default
 
 	if use examples; then
-		insinto /usr/share/doc/${PF}/examples
-		doins src/examples/{*.c,*.policy*}
+		docinto examples
+		dodoc src/examples/{*.c,*.policy*}
 	fi
 
 	diropts -m 0700 -o polkitd
