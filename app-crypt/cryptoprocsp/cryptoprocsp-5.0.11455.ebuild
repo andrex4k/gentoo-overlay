@@ -26,6 +26,7 @@ RESTRICT="mirror strip"
 src_unpack () {
     unpack ${A}
 	cd ${WORKDIR}
+	echo ${WORKDIR}
 	mv linux-amd64/* ${DISTDIR}
 	rm -rf *
 	mkdir ${S}
