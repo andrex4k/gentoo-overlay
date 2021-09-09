@@ -23,6 +23,9 @@ DEPEND=" sys-apps/pcsc-tools
 RDEPEND="${DEPEND}"
 RESTRICT="mirror strip"
 
+A_PREBUILT="*"
+QA_DESKTOP_FILE="usr/share/applications/cptools*\\.desktop"
+
 src_unpack () {
     unpack ${A}
 	cd ${WORKDIR}
