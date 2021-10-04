@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}"
 S=${WORKDIR}/${PN}-${PV}
 
 src_configure() {
-	dobin ${S}/bin
+	dodir ${S}/bin
 	cd ${S}/bin
 #	if use debug && use llvm; then
 #		CC=clang CXX=clang++ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=/usr/bin
