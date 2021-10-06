@@ -44,10 +44,6 @@ S=${WORKDIR}/${PN}-${PV}
 src_configure() {
 	mkdir ${S}/bin
 	cd ${S}/bin
-#	if use debug && use llvm; then
-#		CC=clang CXX=clang++ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=/usr/bin
-#	elif use llvm; then
-#		CC=clang CXX=clang++ cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=/usr/bin
 	if use debug; then
 		cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_BINDIR=/usr/bin
 	else
