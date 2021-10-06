@@ -9,8 +9,7 @@ HOMEPAGE="https://github.com/OpenXRay"
 LICENSE="BSD"
 
 EGIT_REPO_URI="https://github.com/OpenXRay/xray-16"
-REFS="refs/tags/${PV}"
-TAG="${PV}"
+EGIT_BRANCH="${PV}"
 SRC_URI=""
 
 SLOT="0"
