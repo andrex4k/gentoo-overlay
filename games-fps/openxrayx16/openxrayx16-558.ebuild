@@ -8,9 +8,9 @@ DESCRIPTION="Open-source xray engine"
 HOMEPAGE="https://github.com/OpenXRay"
 LICENSE="BSD"
 
-EGIT_REPO_URI="https://github.com/OpenXRay/xray-16"
-EGIT_BRANCH="${PV}"
-SRC_URI=""
+#EGIT_REPO_URI="https://github.com/OpenXRay/xray-16"
+
+SRC_URI="https://github.com/OpenXRay/xray-16/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz" 
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -38,7 +38,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${PN}-${PV}
+S=${WORKDIR}/${P}
 
 src_configure() {
 	mkdir ${S}/bin
