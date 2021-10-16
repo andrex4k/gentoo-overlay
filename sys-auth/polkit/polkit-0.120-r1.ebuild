@@ -85,9 +85,11 @@ src_configure() {
 		-Dos_type=gentoo
 		-Dsession_tracking="$(usex systemd libsystemd-login libelogind)"
 		-Dsystemdsystemunitdir="$(systemd_get_systemunitdir)"
+		-Djs_engine="$(usex duktape)
 		$(meson_use introspection)
 		$(meson_use test tests)
 		$(usex pam "-Dpam_module_dir=$(getpam_mod_dir)" '')
+
 	)
 	meson_src_configure
 }
