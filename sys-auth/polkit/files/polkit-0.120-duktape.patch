@@ -61,33 +61,33 @@ diff --git a/src/polkitbackend/Makefile.am b/src/polkitbackend/Makefile.am
 index 7e3c080..abcbc6f 100644
 --- a/src/polkitbackend/Makefile.am
 +++ b/src/polkitbackend/Makefile.am
-@@ -33,7 +33,7 @@ libpolkit_backend_1_la_SOURCES =                                   			\
- 	polkitbackendprivate.h								\
- 	polkitbackendauthority.h		polkitbackendauthority.c		\
- 	polkitbackendinteractiveauthority.h	polkitbackendinteractiveauthority.c	\
--	polkitbackendjsauthority.h		polkitbackendjsauthority.cpp		\
-+	polkitbackendjsauthority.h				\
- 	polkitbackendactionpool.h		polkitbackendactionpool.c		\
- 	polkitbackendactionlookup.h		polkitbackendactionlookup.c		\
+@@ -33,7 +33,7 @@ libpolkit_backend_1_la_SOURCES =                                                      \
+        polkitbackendprivate.h                                                          \
+        polkitbackendauthority.h                polkitbackendauthority.c                \
+        polkitbackendinteractiveauthority.h     polkitbackendinteractiveauthority.c     \
+-       polkitbackendjsauthority.h              polkitbackendjsauthority.cpp            \
++       polkitbackendjsauthority.h                              \
+        polkitbackendactionpool.h               polkitbackendactionpool.c               \
+        polkitbackendactionlookup.h             polkitbackendactionlookup.c             \
          $(NULL)
-@@ -51,19 +51,27 @@ libpolkit_backend_1_la_CFLAGS =                                        	\
-         -D_POLKIT_BACKEND_COMPILATION                                  	\
-         $(GLIB_CFLAGS)							\
- 	$(LIBSYSTEMD_CFLAGS)						\
--	$(LIBJS_CFLAGS)							\
-+	$(LIBJS_CFLAGS)						\
+@@ -51,19 +51,27 @@ libpolkit_backend_1_la_CFLAGS =                                             \
+         -D_POLKIT_BACKEND_COMPILATION                                          \
+         $(GLIB_CFLAGS)                                                 \
+        $(LIBSYSTEMD_CFLAGS)                                            \
+-       $(LIBJS_CFLAGS)                                                 \
++       $(LIBJS_CFLAGS)                                         \
          $(NULL)
  
  libpolkit_backend_1_la_CXXFLAGS = $(libpolkit_backend_1_la_CFLAGS)
  
- libpolkit_backend_1_la_LIBADD =                               		\
-         $(GLIB_LIBS)							\
-+        $(DUKTAPE_LIBS)							\
- 	$(LIBSYSTEMD_LIBS)						\
- 	$(top_builddir)/src/polkit/libpolkit-gobject-1.la		\
- 	$(EXPAT_LIBS)							\
--	$(LIBJS_LIBS)							\
-+	$(LIBJS_LIBS)                                                   \
+ libpolkit_backend_1_la_LIBADD =                                        \
+         $(GLIB_LIBS)                                                   \
++        $(DUKTAPE_LIBS)                                                        \
+        $(LIBSYSTEMD_LIBS)                                              \
+        $(top_builddir)/src/polkit/libpolkit-gobject-1.la               \
+        $(EXPAT_LIBS)                                                   \
+-       $(LIBJS_LIBS)                                                   \
++       $(LIBJS_LIBS)                                                   \
          $(NULL)
  
 +if USE_DUKTAPE
@@ -2089,14 +2089,14 @@ diff --git a/src/polkitbackend/Makefile.am b/src/polkitbackend/Makefile.am
 index abcbc6f..6a8b4ae 100644
 --- a/src/polkitbackend/Makefile.am
 +++ b/src/polkitbackend/Makefile.am
-@@ -31,6 +31,7 @@ libpolkit_backend_1_la_SOURCES =                                   			\
-         polkitbackend.h									\
- 	polkitbackendtypes.h								\
- 	polkitbackendprivate.h								\
-+	polkitbackendcommon.h			polkitbackendcommon.c			\
- 	polkitbackendauthority.h		polkitbackendauthority.c		\
- 	polkitbackendinteractiveauthority.h	polkitbackendinteractiveauthority.c	\
- 	polkitbackendjsauthority.h				\
+@@ -31,6 +31,7 @@ libpolkit_backend_1_la_SOURCES =                                                      \
+         polkitbackend.h                                                                        \
+        polkitbackendtypes.h                                                            \
+        polkitbackendprivate.h                                                          \
++       polkitbackendcommon.h                   polkitbackendcommon.c                   \
+        polkitbackendauthority.h                polkitbackendauthority.c                \
+        polkitbackendinteractiveauthority.h     polkitbackendinteractiveauthority.c     \
+        polkitbackendjsauthority.h                              \
 diff --git a/src/polkitbackend/meson.build b/src/polkitbackend/meson.build
 index 489897d..9ec01b2 100644
 --- a/src/polkitbackend/meson.build
