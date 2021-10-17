@@ -37,8 +37,8 @@ pkg_setup() {
 }
 
 src_compile() {
-	set_arch_to_kernel
 	linux-mod_src_compile
+	set_arch_to_kernel
 	default
 }
 
