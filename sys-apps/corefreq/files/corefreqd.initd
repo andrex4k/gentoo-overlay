@@ -1,0 +1,8 @@
+#!/sbin/openrc-run
+
+command=corefreqd
+command_args="-q"
+pidfile=
+
+name="../corefreqd"
+description="CoreFreq Daemon"
