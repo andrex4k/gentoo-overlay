@@ -3,7 +3,7 @@
 # $Header: $
 
 
-EAPI=7
+EAPI=8
 
 inherit eutils unpacker
 

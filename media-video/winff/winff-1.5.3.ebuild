@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=8
 inherit eutils
 
 DESCRIPTION="Graphical video and audio batch converter using ffmpeg or avconv"

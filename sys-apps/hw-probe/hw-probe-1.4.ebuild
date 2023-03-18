@@ -3,7 +3,7 @@
 
 # shellcheck disable=SC2034
 
-EAPI=6
+EAPI=8
 
 inherit perl-module
 

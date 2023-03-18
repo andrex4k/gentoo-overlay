@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=8
 inherit eutils unpacker
 
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"

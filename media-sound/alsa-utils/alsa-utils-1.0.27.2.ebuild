@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id: 6a5a8b562b40678acd69abea8e76f2c37ae4338d $
 
-EAPI=5
+EAPI=8
 inherit eutils systemd udev
 
 ADRIVER_PV="1.0.25"

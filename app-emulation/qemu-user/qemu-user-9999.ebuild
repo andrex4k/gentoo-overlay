@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-emulation/qemu-user/qemu-user-9999.ebuild,v 1.9 2013/08/15 08:33:57 pinkbyte Exp $
 
-EAPI=5
+EAPI=8
 
 if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="git://github.com/susematz/qemu.git"

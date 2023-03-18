@@ -1,7 +1,7 @@
 # Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://github.com/tlsa/libcyaml/archive/v${PV}.tar.gz  -> ${P}.tar.gz"

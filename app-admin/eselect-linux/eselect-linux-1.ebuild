@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=8
 
 DESCRIPTION="Linux kernel eselect firmware and headers support"
 HOMEPAGE="http://www.github.com/killer2tester/gentoo-overlay-lif"

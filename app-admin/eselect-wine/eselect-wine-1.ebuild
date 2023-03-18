@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=8
 
 DESCRIPTION="Wine eselect module and env support"
 HOMEPAGE="http://www.github.com/chaoskagami/chaos-overlay"

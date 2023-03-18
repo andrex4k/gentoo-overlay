@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 inherit autotools bash-completion-r1 flag-o-matic gnome2-utils linux-info systemd user udev multilib-minimal
 
 DESCRIPTION="A networked sound server with an advanced plugin system"

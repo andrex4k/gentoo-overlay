@@ -16,7 +16,7 @@
 # This will be able to go away once the klibc author updates his code
 # to build again the headers provided by the kernel's 'headers_install' target.
 
-EAPI=5
+EAPI=8
 K_TARBALL_SUFFIX="xz"
 
 inherit eutils multilib toolchain-funcs flag-o-matic
