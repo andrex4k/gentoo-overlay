@@ -1,0 +1,23 @@
+app-shells/ksh \n
+    x11-base/xorg-x11 \n
+    x11-misc/dunst \n
+    x11-apps/xdpyinfo \n
+    x11-apps/xprop \n
+    x11-misc/xdotool \n
+    media-gfx/imagemagick \n
+    x11-misc/xscreensaver \n
+    dev-python/pyyaml \n
+    dev-python/PyQt5 \n
+    x11-misc/qt5ct \n
+    dev-qt/qtstyleplugins \n
+    x11-misc/stalonetray \n
+    x11-terms/xterm \n
+    dev-lang/python \n
+    dev-python/pyxdg \n
+    dev-libs/libstroke \n
+    x11-misc/xsettingsd \n
+    x11-wm/fvwm \n
+    dev-perl/File-MimeInfo \n
+    app-admin/gkrellm \n
+    x11-misc/xclip \n
+    x11-misc/rofi
