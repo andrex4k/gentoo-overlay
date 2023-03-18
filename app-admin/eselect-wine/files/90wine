@@ -1,4 +1,0 @@
-PATH="/usr/lib/wine/system/bin"
-LDPATH="/usr/lib/wine/system/lib:/usr/lib/wine/system/lib32:/usr/lib/wine/system/lib64"
-MANPATH="/usr/lib/wine/system/man"
-XDG_DATA_DIRS="/usr/lib/wine/system/share"
