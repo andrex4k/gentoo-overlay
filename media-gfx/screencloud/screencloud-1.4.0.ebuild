@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_MIN_VERSION="2.8.12"
-PYTHON_COMPAT=( python{2_7,3_{4,5,6,7}} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit cmake-utils python-single-r1 xdg-utils
 

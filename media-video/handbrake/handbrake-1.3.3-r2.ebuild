@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit autotools eutils gnome2-utils python-any-r1 xdg-utils
 

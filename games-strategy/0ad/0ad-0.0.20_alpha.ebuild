@@ -6,7 +6,7 @@ EAPI=8
 
 WX_GTK_VER="3.0"
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="threads,ssl"
 
 inherit eutils gnome2-utils python-any-r1 toolchain-funcs wxwidgets

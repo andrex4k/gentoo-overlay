@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( FindFreetype )
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit cmake-utils python-single-r1 xdg-utils
 
