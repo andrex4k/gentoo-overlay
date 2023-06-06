@@ -1,0 +1,13 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup unpack
+DESCRIPTION=Emoji as a Service (formerly EmojiOne)
+EAPI=8
+HOMEPAGE=https://www.joypixels.com
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=JoyPixels
+SLOT=0
+SRC_URI=https://cdn.joypixels.com/arch-linux/font/6.0.0/joypixels-android.ttf -> joypixels-6.0.0.ttf
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=bdb77c7a5a41b1a960daa5aba7ecdd5f

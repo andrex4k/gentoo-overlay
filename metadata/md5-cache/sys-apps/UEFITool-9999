@@ -1,0 +1,12 @@
+BDEPEND=!sys-apps/uefitool dev-qt/qtgui:5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DESCRIPTION=UEFITool is a cross-platform C++/Qt program for parsing, extracting and modifying UEFI firmware images
+EAPI=8
+HOMEPAGE=https://github.com/LongSoft/UEFITool
+INHERIT=desktop qmake-utils git-r3 xdg-utils
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=BSD
+PROPERTIES=live
+SLOT=0
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=ed48b53d3713d9f68bd25ea98d2cd9c2

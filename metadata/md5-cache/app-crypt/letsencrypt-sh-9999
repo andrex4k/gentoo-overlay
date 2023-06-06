@@ -1,11 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install test unpack
-DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=letsencrypt/acme client implemented as a shell-script
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/lukas2511/letsencrypt.sh
+INHERIT=git-r3
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=sys-apps/coreutils net-misc/curl dev-libs/openssl
 SLOT=0
-_eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1
-_md5_=f51d30cab0b0beefd02ad43ae45540b3
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=7cbb43e1003064754f38a86e797929fe

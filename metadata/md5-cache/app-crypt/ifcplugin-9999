@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DEPEND=sys-apps/pcsc-lite
+DESCRIPTION=Plugin for gosuslugi.ru auth
+EAPI=8
+HOMEPAGE=http://gosuslugi.ru
+KEYWORDS=**
+RDEPEND=sys-apps/pcsc-lite
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://ds-plugin.gosuslugi.ru/plugin/upload/assets/distrib/IFCPlugin-x86_64.deb ) x86? ( https://esia.gosuslugi.ru/sia-web/htdocs/plugin/IFCPlugin-i386.deb )
+_md5_=b88567dd41e0ce2265ec7f41e707eb32

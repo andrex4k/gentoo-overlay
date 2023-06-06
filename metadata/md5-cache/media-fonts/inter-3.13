@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=app-arch/unzip
+DESCRIPTION=The Inter font family
+EAPI=8
+HOMEPAGE=https://rsms.me/inter/
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~arm ~arm64 ~x86 ~x86-linux ~x64-macos
+LICENSE=OFL-1.1
+SLOT=0
+SRC_URI=https://github.com/rsms/inter/releases/download/v3.13/Inter-3.13.zip
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=07b7c8981d14901bcfa3d6cc6437229a

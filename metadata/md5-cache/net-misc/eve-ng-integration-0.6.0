@@ -1,0 +1,12 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DESCRIPTION=Integrates EVE-NG with Linux desktop
+EAPI=8
+HOMEPAGE=https://git.io/eve-ng-integration
+INHERIT=cmake xdg-utils
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/SmartFinn/eve-ng-integration/archive/refs/tags/v0.6.0.tar.xz -> eve-ng-integration-0.6.0.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	b2e109b7341cd993b8bdfcc60652a14d
+_md5_=3c79d5fce2b43b38baa4b003f4bcd12e

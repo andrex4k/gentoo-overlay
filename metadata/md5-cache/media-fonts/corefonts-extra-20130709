@@ -1,0 +1,13 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup
+DESCRIPTION=Microsoft's TrueType extra core fonts: Calibri, Consolas and Segoe Family
+EAPI=8
+HOMEPAGE=https://github.com/martinring/clide/tree/master/doc/fonts
+INHERIT=font
+IUSE=X
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris ~x86-winnt
+LICENSE=MSttfEULA
+SLOT=0
+SRC_URI=https://github.com/martinring/clide/archive/ed266dbdbd5eed0db67d2014d19a0b0d41a396bf.tar.gz -> corefonts-extra-20130709.tar.gz
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=ab57141b7d3b049318c984ba652d8a7e

@@ -1,12 +1,14 @@
-DEFINED_PHASES=install prepare unpack
-DEPEND=|| ( dev-lang/vala:0.46 dev-lang/vala:0.44 dev-lang/vala:0.42 dev-lang/vala:0.40 dev-lang/vala:0.36 ) virtual/pkgconfig dev-vcs/git
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=|| ( dev-lang/vala:0.56 ) virtual/pkgconfig
 DESCRIPTION=PVala / GTK3 drop-down terminal emulator
-EAPI=5
+EAPI=8
 HOMEPAGE=https://github.com/linvinus/AltYo
+INHERIT=git-r3 vala
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=dev-libs/glib-2 x11-libs/gtk+:3 x11-libs/vte:3
 SLOT=0
-_eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	git-2	3aabf18eba60687bbe6855eba271f688	ltprune	2729691420b6deeda2a90b1f1183fb55	multilib	1d91b03d42ab6308b5f4f6b598ed110e	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	a3a237ef6c0c58546bf23b2c382f9e56	vala	682da46cf615b9f7a7d3680058139dcd	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf
-_md5_=5839d9bc139967240ebcac59c761f09d
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	vala	2633382950a3a9ce912c9258150d5db8
+_md5_=2d8831d23f1363067a648c045a7fbc93

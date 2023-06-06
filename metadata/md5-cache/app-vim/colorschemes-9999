@@ -1,11 +1,13 @@
-DEFINED_PHASES=install postinst postrm unpack
-DEPEND=>=dev-vcs/git-1.8.2.1[curl] || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst postrm prepare unpack
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 DESCRIPTION=One colorscheme pack to rule them all!
-EAPI=5
+EAPI=8
 HOMEPAGE=https://github.com/flazz/vim-colorschemes
+INHERIT=git-r3 vim-plugin
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
-_eclasses_=estack	43ddf5aaffa7a8d0482df54d25a66a1f	git-r3	562b380fc59ae6a8622171d0acb777d1	vim-doc	af2c81a1feeb0a99e91bee3e20769edb	vim-plugin	3160d9cb05ef44497be1485db0fe7590
-_md5_=32ed58e8a954adc15b3081eb18e85189
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	89bf54501de4a75f241062d5a56e787f
+_md5_=a2684aa355da5a897545cd11d220b2e3

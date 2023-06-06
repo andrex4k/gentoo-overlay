@@ -1,0 +1,15 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=install postinst unpack
+DEPEND=app-crypt/cryptoprocsp
+DESCRIPTION=Cryptopro package
+EAPI=8
+HOMEPAGE=http://www.cryptopro.ru
+INHERIT=rpm
+KEYWORDS=~amd64
+LICENSE=Cryptopro
+RDEPEND=app-crypt/cryptoprocsp
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://www.cryptopro.ru/sites/default/files/products/cades/current_release_2_0/cades_linux_amd64.tar.gz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=32cf56534f8525398fc63b4966aaeb5c

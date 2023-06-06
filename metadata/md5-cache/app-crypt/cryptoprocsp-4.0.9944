@@ -1,0 +1,15 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=install postinst unpack
+DEPEND=sys-apps/pcsc-tools sys-apps/pcsc-lite sys-apps/lsb-release app-crypt/ccid
+DESCRIPTION=Cryptopro package
+EAPI=8
+HOMEPAGE=http://www.cryptopro.ru
+INHERIT=rpm
+KEYWORDS=~amd64
+LICENSE=Cryptopro
+RDEPEND=sys-apps/pcsc-tools sys-apps/pcsc-lite sys-apps/lsb-release app-crypt/ccid
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=ftp://ftp.linuxbuh.ru/linuxbuh/app-crypt/cryptoprocsp/cryptoprocsp-4.0.9944.tgz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=8eab22c1186018b89d69154af26e204d

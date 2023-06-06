@@ -1,0 +1,15 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup unpack
+DEPEND=app-arch/libarchive[bzip2]
+DESCRIPTION=The system font for macOS, iOS, watchOS and tvOS
+EAPI=8
+HOMEPAGE=https://developer.apple.com/fonts/
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=APSL-2
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://developer.apple.com/fonts/downloads/SFPro.zip -> SFPro-1.0.zip
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_md5_=745b98e4afbf06741d8cfab3d58ede33
