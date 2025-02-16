@@ -1,0 +1,40 @@
+# bash completion for make_ebuild
+
+_make_ebuild() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="--help --version --config --lang --color --debug"
+
+    if [[ ${cur} == -* ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+
+    case "${prev}" in
+        --config)
+            COMPREPLY=( $(compgen -f ${cur}) )
+            return 0
+            ;;
+        --lang)
+            COMPREPLY=( $(compgen -W "en ru" -- ${cur}) )
+            return 0
+            ;;
+        --color)
+            COMPREPLY=( $(compgen -W "auto always never" -- ${cur}) )
+            return 0
+            ;;
+        --debug)
+            COMPREPLY=( $(compgen -W "true false" -- ${cur}) )
+            return 0
+            ;;
+        *)
+            # Complete with files and directories
+            COMPREPLY=( $(compgen -f ${cur}) )
+            return 0
+            ;;
+    esac
+}
+
+complete -F _make_ebuild make_ebuild
