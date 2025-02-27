@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>andrex4k@gmail.com</email>
+		<name>Andrew Savchenko</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">andrex4k/make_ebuild</remote-id>
+	</upstream>
+</pkgmetadata>
