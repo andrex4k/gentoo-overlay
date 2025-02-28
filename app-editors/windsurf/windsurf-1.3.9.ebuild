@@ -14,7 +14,7 @@ IUSE="alsa cairo cups ffmpeg gtk systemd wayland X"
 
 RDEPEND="
     alsa? ( media-libs/alsa-lib )
-    dev-libs/atk
+    atk? ( dev-libs/atk )
     app-accessibility/at-spi2-core
     cairo? ( x11-libs/cairo )
     sys-libs/libcap
