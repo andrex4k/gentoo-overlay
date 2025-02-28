@@ -41,7 +41,7 @@ RDEPEND="
     dev-libs/nettle
     dev-libs/nspr
     dev-libs/nss
-    dev-libs/p11-kit
+    app-crypt/p11-kit
     x11-libs/pango
     dev-libs/libpcre2
     x11-libs/pixman
