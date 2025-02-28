@@ -71,7 +71,7 @@ RDEPEND="
 QA_PREBUILT="opt/${PN}/*"
 RESTRICT="strip"
 
-S="${WORKDIR}"
+S="${WORKDIR}/Windsurf"
 
 src_install() {
     # Create installation directory
