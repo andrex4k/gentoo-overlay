@@ -30,7 +30,7 @@ RDEPEND="
     dev-libs/fribidi
     media-libs/mesa
     gtk? ( x11-libs/gtk+:3 )
-    media-libs/graphite2
+    media-gfx/graphite2
     dev-libs/gnutls
     dev-libs/glib
     media-libs/harfbuzz
