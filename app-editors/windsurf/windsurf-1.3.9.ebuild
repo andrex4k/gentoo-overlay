@@ -10,7 +10,7 @@ SRC_URI="https://windsurf-stable.codeiumdata.com/linux-x64/stable/43976ecab7354b
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cairo cups ffmpeg gtk systemd wayland X"
+IUSE="alsa atk cairo cups ffmpeg gtk systemd wayland X"
 
 RDEPEND="
     alsa? ( media-libs/alsa-lib )
