@@ -13,25 +13,25 @@ KEYWORDS="~amd64"
 IUSE="alsa cairo cups ffmpeg gtk wayland X"
 
 RDEPEND="
-    alsa? (media-libs/alsa-lib)
+    alsa? ( media-libs/alsa-lib )
     dev-libs/atk
     app-accessibility/at-spi2-core
     # sys-apps/util-linux
     # app-arch/bzip2
-    cairo? (x11-libs/cairo)
+    cairo? ( x11-libs/cairo )
     sys-libs/libcap
-    cups? (net-print/cups)
+    cups? ( net-print/cups )
     sys-apps/dbus
     x11-libs/libdrm
     media-libs/libepoxy
     dev-libs/expat
     dev-libs/libffi
-    ffmpeg? (media-video/ffmpeg)
+    ffmpeg? ( media-video/ffmpeg )
     media-libs/fontconfig
     media-libs/freetype
     dev-libs/fribidi
     media-libs/mesa
-    gtk? (x11-libs/gtk+:3)
+    gtk? ( x11-libs/gtk+:3 )
     media-libs/graphite2
     dev-libs/gnutls
     dev-libs/glib
@@ -51,7 +51,7 @@ RDEPEND="
     sys-apps/systemd
     dev-libs/libtasn1
     dev-libs/libunistring
-    wayland? (dev-libs/wayland)
+    wayland? ( dev-libs/wayland )
     X? (
     x11-libs/libX11
     x11-libs/libXau
