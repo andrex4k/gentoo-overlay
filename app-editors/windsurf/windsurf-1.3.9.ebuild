@@ -10,7 +10,7 @@ SRC_URI="https://windsurf-stable.codeiumdata.com/linux-x64/stable/43976ecab7354b
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cairo cups ffmpeg gtk wayland X"
+IUSE="alsa cairo cups ffmpeg gtk systemd wayland X"
 
 RDEPEND="
     alsa? ( media-libs/alsa-lib )
@@ -31,7 +31,7 @@ RDEPEND="
     media-libs/mesa
     gtk? ( x11-libs/gtk+:3 )
     media-gfx/graphite2
-    dev-libs/gnutls
+    net-libs/gnutls
     dev-libs/glib
     media-libs/harfbuzz
     dev-libs/nettle
@@ -46,7 +46,7 @@ RDEPEND="
     dev-libs/libpcre2
     x11-libs/pixman
     media-libs/libpng
-    sys-apps/systemd
+    systemd? ( sys-apps/systemd )
     dev-libs/libtasn1
     dev-libs/libunistring
     wayland? ( dev-libs/wayland )
