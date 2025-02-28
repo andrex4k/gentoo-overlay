@@ -16,8 +16,6 @@ RDEPEND="
     alsa? ( media-libs/alsa-lib )
     dev-libs/atk
     app-accessibility/at-spi2-core
-    # sys-apps/util-linux
-    # app-arch/bzip2
     cairo? ( x11-libs/cairo )
     sys-libs/libcap
     cups? ( net-print/cups )
