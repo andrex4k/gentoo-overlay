@@ -10,28 +10,28 @@ SRC_URI="https://windsurf-stable.codeiumdata.com/linux-x64/stable/43976ecab7354b
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="alsa cairo cups ffmpeg gtk wayland X"
 
 RDEPEND="
-    media-libs/alsa-lib
+    alsa? (media-libs/alsa-lib)
     dev-libs/atk
     app-accessibility/at-spi2-core
-    sys-apps/util-linux
-    app-arch/bzip2
-    x11-libs/cairo
+    # sys-apps/util-linux
+    # app-arch/bzip2
+    cairo? (x11-libs/cairo)
     sys-libs/libcap
-    net-print/cups
+    cups? (net-print/cups)
     sys-apps/dbus
     x11-libs/libdrm
     media-libs/libepoxy
     dev-libs/expat
     dev-libs/libffi
-    media-video/ffmpeg
+    ffmpeg? (media-video/ffmpeg)
     media-libs/fontconfig
     media-libs/freetype
     dev-libs/fribidi
-    media-libs/mesa[gbm]
-    x11-libs/gtk+:3
+    media-libs/mesa
+    gtk? (x11-libs/gtk+:3)
     media-libs/graphite2
     dev-libs/gnutls
     dev-libs/glib
@@ -51,7 +51,8 @@ RDEPEND="
     sys-apps/systemd
     dev-libs/libtasn1
     dev-libs/libunistring
-    dev-libs/wayland
+    wayland? (dev-libs/wayland)
+    X? (
     x11-libs/libX11
     x11-libs/libXau
     x11-libs/libxcb
@@ -65,6 +66,7 @@ RDEPEND="
     x11-libs/libxkbcommon
     x11-libs/libXrandr
     x11-libs/libXrender
+    )
     sys-libs/zlib
 "
 
