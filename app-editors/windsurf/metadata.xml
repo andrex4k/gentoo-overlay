@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>andrex4k@gmail.com</email>
+        <name>Andrew Savchenko</name>
+    </maintainer>
+    <longdescription>
+        Windsurf is the World's First Agentic IDE by Codeium. It provides a powerful
+        development environment with AI-powered features to enhance productivity.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">Codeium/windsurf</remote-id>
+    </upstream>
+</pkgmetadata>

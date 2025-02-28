@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Windsurf
+Comment=The World's First Agentic IDE by Codeium
+Exec=/usr/bin/windsurf %F
+Icon=/opt/windsurf/resources/app/resources/linux/windsurf.png
+Terminal=false
+Type=Application
+Categories=Development;IDE;
+MimeType=text/plain;
+Keywords=IDE;development;programming;
