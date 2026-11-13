@@ -89,7 +89,7 @@ pkg_postinst() {
 }
 
 src_prepare() {
-    FOO=bar
+	eapply_user
 }
 
 src_configure() {

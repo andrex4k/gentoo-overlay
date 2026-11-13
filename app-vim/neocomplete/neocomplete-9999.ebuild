@@ -24,4 +24,5 @@ RDEPEND="
 src_prepare() {
 	# remove unwanted files
 	rm -r test || die
+	eapply_user
 }

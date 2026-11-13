@@ -39,7 +39,10 @@ src_prepare() {
 		"${FILESDIR}"/${P}-noasprintf.patch \
 		"${FILESDIR}"/${P}-atomic-create.patch \
 		"${FILESDIR}"/${P}-Werror.patch
+	eapply_user
 	eautoreconf
+	# GCC >= 10 defaults to -fno-common, old sources rely on it
+	append-cflags -fcommon
 }
 
 src_configure() {

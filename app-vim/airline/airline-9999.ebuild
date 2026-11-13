@@ -17,4 +17,5 @@ VIM_PLUGIN_HELPFILES="${PN}.txt"
 src_prepare() {
 	# remove unwanted files
 	rm -r t Gemfile Rakefile LICENSE README* || die
+	eapply_user
 }

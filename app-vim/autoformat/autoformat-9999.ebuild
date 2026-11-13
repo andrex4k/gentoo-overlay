@@ -15,4 +15,5 @@ LICENSE="MIT"
 src_prepare() {
 	# remove unwanted files
 	rm -r samples || die
+	eapply_user
 }
