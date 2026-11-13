@@ -1,0 +1,18 @@
+CryptoPro CSP (CryptoPro Cryptographic Service Provider)
+
+This software is proprietary.  All rights are reserved by Crypto-Pro
+company (https://cryptopro.ru).
+
+Redistribution, reverse engineering and commercial use are governed by the
+license agreement that is accepted when downloading the distribution:
+
+    https://cryptopro.ru/products/csp
+    https://cryptopro.ru/sites/default/files/docs/csp/license.pdf
+
+The distribution archive cannot be redistributed, therefore the ebuild uses
+RESTRICT="bindist fetch mirror".  You have to download it yourself from
+cryptopro.ru (registration is required) and place it in DISTDIR.
+
+CryptoPro CSP includes components under other licenses: the ifd-rutokens
+PC/SC driver is GPL-2, the accord_random and sobol kernel module sources are
+BSD-licensed.  Those parts are not built or installed by this package.

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zratolale@gmail.com</email>
+		<name>andrex4k</name>
+	</maintainer>
+	<longdescription lang="en">
+		CryptoPro CSP is a proprietary cryptographic service provider
+		implementing the Russian GOST R 34.10-2001/2012, GOST R 34.11-94/2012
+		and GOST 28147-89 algorithms.  It provides a CryptoAPI/CNG-like
+		interface (libcapi20/libcapi10), PKCS#11, CAdES/XAdES, TLS via
+		Nginx/Apache/stunnel and a large set of smart card and USB token
+		drivers.  The vendor binaries are installed below /opt/cprocsp and
+		configured with cpconfig(8) in pkg_postinst.
+	</longdescription>
+	<use>
+		<flag name="cades">Install CAdES/XAdES libraries and the browser native messaging host (cprocsp-pki-cades, cprocsp-pki-plugin); requires gui.</flag>
+		<flag name="cptools">Install the GTK3 cptools GUI and its MIME types.</flag>
+		<flag name="devel">Install headers and code samples (lsb-cprocsp-devel).</flag>
+		<flag name="demo-license">Install the vendor's time-limited demo license (including the OCSP/TSP demo serials).  Disable if you provision licenses yourself.</flag>
+		<flag name="gui">Install the GTK3 PIN/password dialogs (cprocsp-rdr-gui-gtk).</flag>
+		<flag name="import-ca-certs">Import the system CA bundle into the CSP root store during configuration.</flag>
+		<flag name="kc1">Install the KC1 provider (lsb-cprocsp-kc1), the normal local provider.</flag>
+		<flag name="kc2">Install the KC2 client/server provider (lsb-cprocsp-kc2); it replaces KC1 and needs the cryptsrv service.</flag>
+		<flag name="pkcs11">Install the PKCS#11 module (lsb-cprocsp-pkcs11), needed by browsers and gosuslugi.</flag>
+		<flag name="rcrypt">Install the GOST-aware libcrypt replacement (lsb-cprocsp-rcrypt).</flag>
+		<flag name="stunnel">Install the GOST-enabled stunnel binaries (cprocsp-stunnel).</flag>
+		<flag name="readers_accord">Smart card driver for Accord readers (lsb-cprocsp-rdr-accord).</flag>
+		<flag name="readers_accord_ccid">Accord CCID reader driver (needs readers_pcsc).</flag>
+		<flag name="readers_ancud">Ancud Crypton SCR/RNG driver.</flag>
+		<flag name="readers_cloud">Cloud token driver (cprocsp-rdr-cloud).</flag>
+		<flag name="readers_cpfkc">CryptoPro FKC token driver (needs readers_pcsc).</flag>
+		<flag name="readers_crypton">Crypton-Lock driver.</flag>
+		<flag name="readers_cryptoki">PKCS#11/Cryptoki token driver.</flag>
+		<flag name="readers_edoc">Electronic document driver (needs readers_pcsc).</flag>
+		<flag name="readers_emv">EMV/Gemalto card driver (needs readers_pcsc).</flag>
+		<flag name="readers_esmart">ESMART token driver (needs readers_pcsc).</flag>
+		<flag name="readers_infocrypt">Infocrypt Token++ driver (needs readers_pcsc).</flag>
+		<flag name="readers_inpaspot">Alioth Inpaspot driver (needs readers_pcsc).</flag>
+		<flag name="readers_jacarta">Aladdin JaCarta driver (needs readers_pcsc).</flag>
+		<flag name="readers_kst">KST token driver (needs readers_pcsc).</flag>
+		<flag name="readers_maxim">Maxim RNG driver.</flag>
+		<flag name="readers_mskey">MSKey token driver (needs readers_pcsc).</flag>
+		<flag name="readers_novacard">Novacard driver (needs readers_pcsc).</flag>
+		<flag name="readers_pcsc">PC/SC reader support (cprocsp-rdr-pcsc); required by most token drivers.</flag>
+		<flag name="readers_relay">Relay reader driver.</flag>
+		<flag name="readers_rosan">Rosan token driver (needs readers_pcsc).</flag>
+		<flag name="readers_rutoken">Aktiv Rutoken driver plus the ifd-rutokens PC/SC bundle (needs readers_pcsc).</flag>
+		<flag name="readers_rustoken">RUSToken driver (needs readers_pcsc).</flag>
+		<flag name="readers_sobol">Sobol/Sable RNG driver.</flag>
+		<flag name="readers_vityaz">Vityaz RNG driver.</flag>
+	</use>
+</pkgmetadata>

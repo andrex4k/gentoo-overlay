@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 2026
+# Distributed under the terms of the GNU General Public License v2
+
+description="CryptoPro CSP daemons (KC2/HSM services)"
+extra_started_commands="reload"
+
+depend() {
+	need localmount
+	after network
+}
+
+start() {
+	ebegin "Starting CryptoPro CSP services"
+	/opt/cprocsp/libexec/cprocsp-services.sh start
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping CryptoPro CSP services"
+	/opt/cprocsp/libexec/cprocsp-services.sh stop
+	eend $?
+}
+
+reload() {
+	ebegin "Restarting CryptoPro CSP services"
+	/opt/cprocsp/libexec/cprocsp-services.sh restart
+	eend $?
+}
+
+status() {
+	/opt/cprocsp/libexec/cprocsp-services.sh status
+}
