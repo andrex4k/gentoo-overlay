@@ -8,7 +8,9 @@ inherit autotools eutils toolchain-funcs flag-o-matic systemd
 
 DESCRIPTION="Rotates, compresses, and mails system logs"
 HOMEPAGE="https://fedorahosted.org/logrotate/"
-SRC_URI="https://fedorahosted.org/releases/l/o/logrotate/${P}.tar.gz"
+SRC_URI="https://github.com/logrotate/logrotate/archive/refs/tags/r3-9-1.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/logrotate-r3-9-1"
 
 LICENSE="GPL-2"
 SLOT="0"

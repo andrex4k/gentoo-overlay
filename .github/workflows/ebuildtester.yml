@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   logrotate:
-    name: app-admin/logrotate-3.9.2
+    name: app-admin/logrotate-3.9.1
     runs-on: ubuntu-24.04
     timeout-minutes: 90
 
@@ -54,7 +54,7 @@ jobs:
       - name: Run ebuildtester
         run: |
           ebuildtester \
-            --atom '=app-admin/logrotate-3.9.2' \
+            --atom '=app-admin/logrotate-3.9.1' \
             --portage-dir "$RUNNER_TEMP/gentoo" \
             --overlay-dir "$GITHUB_WORKSPACE" \
             --profile default/linux/amd64/23.0 \
