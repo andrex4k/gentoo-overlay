@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ebuildtester-${{ github.ref }}
+  # dev and master usually receive the same commit; only test the latest one
+  group: ebuildtester
   cancel-in-progress: true
 
 permissions:
