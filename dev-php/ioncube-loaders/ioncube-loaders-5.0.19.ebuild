@@ -11,7 +11,7 @@ DOCS="README.txt LICENSE.txt"
 
 USE_PHP="php5-3 php5-4 php5-5"
 
-inherit php-ext-source-r2
+inherit php-ext-source-r3
 
 KEYWORDS="~amd64 ~x86"
 
@@ -71,7 +71,7 @@ src_install() {
 			[[ -s ${doc} ]] && dodoc ${doc}
 		done
 	done
-	php-ext-source-r2_createinifiles
+	php-ext-source-r3_createinifiles
 }
 
 pkg_config () {

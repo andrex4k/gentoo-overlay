@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit eutils rpm linux-info linux-mod systemd
+inherit eutils rpm linux-info linux-mod-r1 systemd
 
 DESCRIPTION="Hardware Against Software Piracy for access to parallel and usb keys"
 HOMEPAGE="http://www.etersoft.ru"
@@ -40,7 +40,7 @@ pkg_setup() {
 		MODULE_NAMES="${MODNAME}(${MODNAME}:${S}/${MODNAME})"
 		CONFIG_CHECK="PARPORT PARPORT_PC"
 
-		linux-mod_pkg_setup
+		linux-mod-r1_pkg_setup
 		BUILD_PARAMS="KERNSRC=${KERNEL_DIR}" BUILD_TARGETS="kernel3"
 	fi
 }
@@ -53,7 +53,7 @@ src_unpack() {
 src_compile() {
 	if use lpt ; then
 		cd "${S}/${MODNAME}"
-		ARCH="${MY_ARCH}" emake "${BUILD_PARAMS}" "${BUILD_TARGETS}" || die
+		ARCH="${MY_ARCH}" linux-mod-r1_src_compile
 	fi
 }
 
@@ -83,7 +83,7 @@ src_install() {
 		newinitd "${FILESDIR}"/hasplmd.init hasplmd
 	fi
 
-	use lpt && linux-mod_src_install
+	use lpt && linux-mod-r1_src_install
 	local udevrulesdir="$($(tc-getPKG_CONFIG) --variable=udevdir udev)/rules.d"
 	dodir ${udevrulesdir}
 	insinto ${udevrulesdir}

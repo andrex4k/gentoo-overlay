@@ -4,7 +4,7 @@
 
 EAPI=8
 
-inherit autotools eutils flag-o-matic multilib systemd user versionator
+inherit autotools eutils flag-o-matic multilib systemd user
 
 MY_P="${PN/f/F}-${PV}-ReleaseCandidate1"
 

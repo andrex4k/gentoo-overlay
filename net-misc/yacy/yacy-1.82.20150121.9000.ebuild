@@ -4,11 +4,11 @@
 
 EAPI=8
 
-inherit eutils versionator user
+inherit eutils user
 
-MAJOR_PV="$(get_version_component_range 1-2)"
-REL_PV="$(get_version_component_range 3)"
-SVN_PV="$(get_version_component_range 4)"
+MAJOR_PV="$(ver_cut 1-2)"
+REL_PV="$(ver_cut 3)"
+SVN_PV="$(ver_cut 4)"
 
 DESCRIPTION="p2p based distributed web-search engine - latest stable binary"
 HOMEPAGE="http://www.yacy.net/"

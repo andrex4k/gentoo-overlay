@@ -4,7 +4,13 @@
 
 EAPI=8
 
-inherit scons-utils eutils toolchain-funcs multilib git-r3
+PYTHON_COMPAT=( python3_{12,13} )
+
+inherit python-any-r1 scons-utils eutils toolchain-funcs multilib git-r3
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
 
 DESCRIPTION="A speech synthesizer for Russian language"
 HOMEPAGE="https://github.com/Olga-Yakovleva/RHVoice"

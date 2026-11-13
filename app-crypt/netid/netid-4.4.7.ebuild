@@ -1,6 +1,8 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+EAPI=8
+
 inherit eutils
 
 DESCRIPTION="Net iD PKI client software from SecMaker"
@@ -36,5 +38,6 @@ src_install() {
 	doins npiidplg.xpt
 
 	dodoc license.txt
-	dohtml pkcs11.html
+	docinto html
+	dodoc pkcs11.html
 }

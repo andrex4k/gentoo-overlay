@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{12,13} )
 inherit meson python-r1 vala
 
 DESCRIPTION="Accounts SSO (Single Sign-On) management library for GLib applications"

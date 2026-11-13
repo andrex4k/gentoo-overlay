@@ -5,7 +5,7 @@ EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake-utils
+inherit cmake
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/F1ash/qt-virt-manager.git"
@@ -49,5 +49,5 @@ src_configure() {
 		-DWITH_LIBCACARD="$(usex smartcard ON OFF)"
 		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }

@@ -13,7 +13,7 @@ IUSE="debug doc kernel_linux opengl test vulkaninfo"
 
 CMAKE_MIN_VERSION="3.3"
 
-inherit xdg cmake-utils gnome2-utils
+inherit xdg cmake gnome2-utils
 
 DESCRIPTION="CoreCtrl is control with ease your computer hardware using application profiles."
 HOMEPAGE="https://gitlab.com/corectrl/corectrl"
@@ -58,7 +58,7 @@ CMAKE_USE_DIR=${WORKDIR}/${PN}-v${PV}
 
 src_configure() {
 	local mycmakeargs=(
-		-DLIB_INSTALL_DIR="/usr/$(get_abi_LIBDIR)"
+		-DLIB_INSTALL_DIR="/usr/$(get_libdir)"
 		-DLIBDIR="$(get_libdir)"
 		-DCMAKE_BUILD_TYPE=Release
 		-DBUILD_TESTING="$(usex test)"
@@ -71,18 +71,15 @@ src_configure() {
 				)
         fi
 	sed -i -- 's/\/usr/${CMAKE_INSTALL_PREFIX}/g' src/helper/cmake_install.cmake
-	cmake-utils_src_configure
-	default
+	cmake_src_configure
 }
 
-cmake_src_test() {
-	cmake-utils_src_test
+src_test() {
 	cmake_src_test
 }
 
 src_install() {
-	cmake-utils_src_install
-	default
+	cmake_src_install
 }
 
 pkg_preinst() {

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit linux-info linux-mod systemd toolchain-funcs
+inherit linux-info linux-mod-r1 systemd toolchain-funcs
 
 
 DESCRIPTION="CoreFreq is a CPU monitoring software designed for the 64-bits Processors."
@@ -33,18 +33,16 @@ pkg_setup() {
 	ERROR_MODULES="CONFIG_MODULES: is mandatory"
 	ERROR_SMP="CONFIG_SMP: is mandatory"
 	ERROR_X86_MSR="CONFIG_X86_MSR: is mandatory"
-    linux-info_pkg_setup
+	linux-mod-r1_pkg_setup
 }
 
 src_compile() {
-	linux-mod_src_compile
+	linux-mod-r1_src_compile
 	set_arch_to_kernel
-	default
 }
 
 src_install() {
-	linux-mod_src_install
-	default
+	linux-mod-r1_src_install
 	if use systemd; then
 	systemd_dounit corefreqd.{service,socket}
 	fi

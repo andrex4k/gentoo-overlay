@@ -4,7 +4,7 @@
 # @ECLASS: font-r1.eclass
 # @MAINTAINER:
 # 4nykey@gmail.com
-# @SUPPORTED_EAPIS: 5 6 7
+# @SUPPORTED_EAPIS: 5 6 7 8
 # @BLURB: Eclass to make font installation uniform
 
 EXPORT_FUNCTIONS pkg_setup src_install pkg_postinst pkg_postrm
@@ -87,7 +87,7 @@ DEPEND="
 case ${EAPI:-0} in
 	5) inherit eutils ;;
 	6) ;;
-	7) BDEPEND="${DEPEND}"; DEPEND="" ;;
+	7|8) BDEPEND="${DEPEND}"; DEPEND="" ;;
 	*) die "${ECLASS}: EAPI ${EAPI} not supported" ;;
 esac
 
