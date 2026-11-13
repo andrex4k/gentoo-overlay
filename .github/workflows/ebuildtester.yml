@@ -22,10 +22,10 @@ jobs:
 
     steps:
       - name: Checkout overlay
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -40,7 +40,7 @@ jobs:
         run: echo "week=$(date +%Y-%V)" >> "$GITHUB_OUTPUT"
 
       - name: Cache Gentoo tree
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ${{ runner.temp }}/gentoo
           key: gentoo-tree-${{ steps.week.outputs.week }}
