@@ -1,0 +1,68 @@
+name: ebuildtester
+
+on:
+  push:
+    branches: [master, dev]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ebuildtester-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  logrotate:
+    name: app-admin/logrotate-3.9.2
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout overlay
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ebuildtester
+        run: |
+          python -m pip install --upgrade pip
+          # the PyPI package does not declare these dependencies
+          pip install ebuildtester tomli platformdirs
+
+      - name: Current week
+        id: week
+        run: echo "week=$(date +%Y-%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Gentoo tree
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/gentoo
+          key: gentoo-tree-${{ steps.week.outputs.week }}
+
+      - name: Clone Gentoo tree
+        run: |
+          if [ ! -d "$RUNNER_TEMP/gentoo/.git" ]; then
+            git clone --depth 1 https://github.com/gentoo/gentoo.git "$RUNNER_TEMP/gentoo"
+          fi
+
+      - name: Run ebuildtester
+        run: |
+          ebuildtester \
+            --atom '=app-admin/logrotate-3.9.2' \
+            --portage-dir "$RUNNER_TEMP/gentoo" \
+            --overlay-dir "$GITHUB_WORKSPACE" \
+            --profile default/linux/amd64/23.0 \
+            --unstable \
+            --threads 2 \
+            --batch --rm
+
+      # app-crypt/cprocsp is RESTRICT="fetch": its 31 MiB linux-amd64.tgz
+      # cannot be downloaded in CI. To test it, seed the distfile first:
+      #   cp linux-amd64.tgz "$RUNNER_TEMP/gentoo/distfiles/"
+      # and run ebuildtester with
+      #   --atom '=app-crypt/cprocsp-5.0.13003'
