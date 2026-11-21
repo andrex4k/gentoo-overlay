@@ -15,11 +15,17 @@
 
 set -u
 
-CP_ROOT=/opt/cprocsp
+CP_ROOT=${CP_ROOT:-/opt/cprocsp}
+RUNDIR=${RUNDIR:-/run}
+
 CPCONFIG=$(ls -1 "${CP_ROOT}"/sbin/*/cpconfig 2>/dev/null | head -n 1)
-[[ -n ${CPCONFIG} ]] || exit 0
+if [[ -z ${CPCONFIG} ]]; then
+	echo "cprocsp-services: cpconfig not found under ${CP_ROOT}/sbin" >&2
+	exit 0
+fi
 CP_SBINDIR=${CPCONFIG%/*}
-RUNDIR=/run
+
+mkdir -p "${RUNDIR}" 2>/dev/null || true
 
 service_names() {
 	"${CPCONFIG}" -ini '\config\services' -enum section 2>/dev/null
@@ -33,19 +39,33 @@ pidfile_of() {
 	printf '%s/cprocsp-%s.pid\n' "${RUNDIR}" "$1"
 }
 
+# Is a process with this name running?  The daemons may fork and detach, so
+# a stale pid file alone does not mean that the service is down.
+is_running() {
+	local name=${1##*/}
+	command -v pgrep >/dev/null 2>&1 && pgrep -x "${name}" >/dev/null 2>&1
+}
+
 start_service() {
 	local svc=$1 exe=$2 pidfile
 	pidfile=$(pidfile_of "${svc}")
-	[[ -x ${CP_SBINDIR}/${exe} ]] || return 0
 
-	if [[ -f ${pidfile} ]] && kill -0 "$(cat "${pidfile}")" 2>/dev/null; then
+	if [[ ! -x ${CP_SBINDIR}/${exe} ]]; then
+		echo "cprocsp-services: ${CP_SBINDIR}/${exe} is not executable" >&2
+		return 1
+	fi
+
+	if is_running "${exe}"; then
 		echo " * ${exe} is already running"
 		return 0
 	fi
 
 	if command -v start-stop-daemon >/dev/null 2>&1; then
-		start-stop-daemon --start --quiet --background --make-pidfile \
-			--pidfile "${pidfile}" --exec "${CP_SBINDIR}/${exe}" --
+		if ! start-stop-daemon --start --quiet --background --make-pidfile \
+			--pidfile "${pidfile}" --exec "${CP_SBINDIR}/${exe}" --; then
+			echo "cprocsp-services: failed to start ${exe}" >&2
+			return 1
+		fi
 	elif command -v setsid >/dev/null 2>&1; then
 		setsid "${CP_SBINDIR}/${exe}" </dev/null >/dev/null 2>&1 &
 		echo $! > "${pidfile}"
@@ -53,16 +73,27 @@ start_service() {
 		"${CP_SBINDIR}/${exe}" </dev/null >/dev/null 2>&1 &
 		echo $! > "${pidfile}"
 	fi
+
+	# Give the daemon a moment to come up (it may still be forking).
+	local i
+	for ((i = 0; i < 10; i++)); do
+		is_running "${exe}" && break
+		sleep 0.2
+	done
+	if ! is_running "${exe}"; then
+		echo "cprocsp-services: ${exe} did not start" >&2
+		rm -f "${pidfile}"
+		return 1
+	fi
 	echo " * Starting ${exe}"
 }
 
 stop_service() {
-	local svc=$1 exe=$2 pidfile i
+	local svc=$1 exe=$2 pidfile pid i
 	pidfile=$(pidfile_of "${svc}")
 
 	if [[ -f ${pidfile} ]]; then
-		local pid
-		pid=$(cat "${pidfile}" 2>/dev/null)
+		pid=$(cat "${pidfile}" 2>/dev/null || true)
 		if [[ -n ${pid} ]] && kill -0 "${pid}" 2>/dev/null; then
 			kill -TERM "${pid}" 2>/dev/null
 			for ((i = 0; i < 30; i++)); do
@@ -77,8 +108,15 @@ stop_service() {
 
 	# cryptsrv and friends may daemonise themselves, so the pid file is not
 	# always authoritative.
-	if command -v pkill >/dev/null 2>&1 && pkill -TERM -x "${exe}" 2>/dev/null; then
-		echo " * Stopping ${exe}"
+	if command -v pkill >/dev/null 2>&1; then
+		if pkill -TERM -x "${exe}" 2>/dev/null; then
+			echo " * Stopping ${exe}"
+			for ((i = 0; i < 30; i++)); do
+				is_running "${exe}" || break
+				sleep 1
+			done
+			is_running "${exe}" && pkill -KILL -x "${exe}" 2>/dev/null
+		fi
 	fi
 	return 0
 }
@@ -106,19 +144,21 @@ do_stop() {
 }
 
 do_status() {
-	local svc exe pidfile pid rc=0
+	local svc exe pidfile pid rc=0 found=0
 	for svc in $(service_names); do
 		exe=$(service_exe "${svc}")
 		[[ -n ${exe} ]] || continue
+		found=1
 		pidfile=$(pidfile_of "${svc}")
 		pid=$(cat "${pidfile}" 2>/dev/null || true)
-		if [[ -n ${pid} ]] && kill -0 "${pid}" 2>/dev/null; then
-			echo " * ${exe} is running (pid ${pid})"
+		if is_running "${exe}"; then
+			echo " * ${exe} is running${pid:+ (pid ${pid})}"
 		else
 			echo " * ${exe} is stopped"
 			rc=3
 		fi
 	done
+	[[ ${found} -eq 1 ]] || echo " * No CryptoPro CSP services are registered"
 	return ${rc}
 }
 

@@ -1,10 +1,14 @@
 [Unit]
-Description=CryproPro Service
+Description=CryptoPro CSP services
+Documentation=https://cryptopro.ru/products/csp
+After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/etc/init.d/cprocsp start
-ExecStop=/etc/init.d/cprocsp stop
+RemainAfterExit=yes
+ExecStart=/opt/cprocsp/libexec/cprocsp-services.sh start
+ExecStop=/opt/cprocsp/libexec/cprocsp-services.sh stop
+ExecReload=/opt/cprocsp/libexec/cprocsp-services.sh restart
 
 [Install]
 WantedBy=multi-user.target
