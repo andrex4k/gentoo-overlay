@@ -328,12 +328,30 @@ pkg_nofetch() {
 }
 
 pkg_config() {
-	if [[ ${ROOT} != / ]]; then
-		ewarn "cpconfig can only configure the running system; skipping."
+	# ROOT is empty when --config runs on the live system, so "" must be
+	# treated as "/" (the same normalisation as in pkg_postinst).
+	local target=${ROOT:-/}
+	target=${target%/}
+	[[ -n ${target} ]] || target=/
+
+	if [[ ${target} != / ]]; then
+		# cpconfig uses absolute paths; configure a non-/ root from
+		# inside a chroot when the target is runnable here.
+		if [[ -x ${target}/bin/sh ]] &&
+			chroot "${target}" /bin/sh -c true >/dev/null 2>&1; then
+			ebegin "Configuring CryptoPro CSP in ${target}"
+			chroot "${target}" /opt/cprocsp/libexec/cprocsp-postinst.sh
+			eend $? "cpconfig reported errors inside ${target}"
+		else
+			ewarn "Cannot configure ${target} from here."
+			ewarn "Run 'emerge --config app-crypt/cprocsp' inside the target."
+		fi
 		return
 	fi
+
 	einfo "Re-running CryptoPro CSP configuration"
-	/opt/cprocsp/libexec/cprocsp-postinst.sh || ewarn "Configuration reported errors"
+	/opt/cprocsp/libexec/cprocsp-postinst.sh ||
+		ewarn "Configuration reported errors"
 }
 
 pkg_postinst() {
@@ -348,8 +366,10 @@ pkg_postinst() {
 	fi
 	use readers_rutoken && udev_reload
 
-	if [[ ${ROOT} != / ]]; then
-		local target=${ROOT%/}
+	if [[ ${ROOT:-/} != / ]]; then
+		local target=${ROOT:-/}
+		target=${target%/}
+		[[ -n ${target} ]] || target=/
 		# cpconfig uses absolute paths, so it can only configure a
 		# non-/ root from inside a chroot.  Do that when the target is
 		# runnable here (same architecture, complete rootfs).
