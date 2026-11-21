@@ -339,16 +339,20 @@ pkg_config() {
 pkg_postinst() {
 	local cpbindir
 
-	if [[ ${ROOT} != / ]]; then
-		ewarn "Skipping cpconfig setup: it can only configure the running system."
-		return
-	fi
-
+	# The xdg and udev helpers are ROOT-aware, so their caches must be
+	# refreshed even when merging into a non-/ root (QA checks 50xdg-utils
+	# and 60udev look at this).
 	if use cptools; then
 		xdg_desktop_database_update
 		xdg_mimeinfo_database_update
 	fi
 	use readers_rutoken && udev_reload
+
+	if [[ ${ROOT} != / ]]; then
+		ewarn "cpconfig was not run: it configures the running system only."
+		ewarn "Inside the target system run: emerge --config ${CATEGORY}/${PN}"
+		return
+	fi
 
 	ebegin "Configuring CryptoPro CSP (cpconfig)"
 	/opt/cprocsp/libexec/cprocsp-postinst.sh
@@ -377,6 +381,10 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	if use cptools; then
+		xdg_desktop_database_update
+		xdg_mimeinfo_database_update
+	fi
 	use readers_rutoken && udev_reload
 }
 
