@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zratolale@gmail.com</email>
+		<name>andrex4k</name>
+	</maintainer>
+	<longdescription lang="en">
+		Yandex Browser corporate edition: a Chromium-based browser with
+		Yandex services and enterprise policy support.  Installed from the
+		official Yandex Debian package under /opt/yandex/browser.
+	</longdescription>
+	<use>
+		<flag name="ffmpeg-codecs">
+			Install a symlink to the system Chromium ffmpeg build
+			(media-video/ffmpeg-chromium:152) so that H.264/AAC playback
+			works.
+		</flag>
+	</use>
+</pkgmetadata>

@@ -1,0 +1,18 @@
+Yandex Browser End User License Agreement (Yandex-EULA)
+
+This software is proprietary.  Use and distribution are governed by the
+Yandex Browser license agreement:
+
+    https://yandex.ru/legal/browser_agreement/
+
+and the terms published for the corporate version:
+
+    https://browser.yandex.ru/corporate
+
+The Debian package is redistributed by Yandex LLC from
+https://repo.yandex.ru/yandex-browser/.  This overlay only repackages it
+for Gentoo and therefore keeps RESTRICT="bindist mirror".
+
+The package contains components under other licenses (Chromium, FFmpeg
+and others); their license texts are shipped inside the package under
+/opt/yandex/browser.
