@@ -46,8 +46,9 @@ pidfile_of() {
 # create these sections, so this distinguishes "configured, no daemons"
 # (normal for KC1) from "package merged but not configured".
 providers_configured() {
-	"${CPCONFIG}" -ini '\cryptography\Defaults\Provider Types\Type 080' -view >/dev/null 2>&1 ||
-		"${CPCONFIG}" -ini '\cryptography\Defaults\Provider Types\Type 075' -view >/dev/null 2>&1
+	# -ini <section> -view does not work for sections; -getdef does.
+	"${CPCONFIG}" -defprov -getdef -provtype 80 >/dev/null 2>&1 ||
+		"${CPCONFIG}" -defprov -getdef -provtype 75 >/dev/null 2>&1
 }
 
 # Is a process with this name running?  The daemons may fork and detach, so

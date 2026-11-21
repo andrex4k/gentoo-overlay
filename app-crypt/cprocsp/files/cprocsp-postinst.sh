@@ -274,16 +274,11 @@ if [[ ${CP_IMPORT_CA_CERTS} == 1 && -x ${CP_BINDIR}/cryptcp ]]; then
 	fi
 fi
 
-# Sanity check: the default provider must now be visible in the config.
-if [[ -e ${CP_LIBDIR}/libcsp.so ]]; then
-	"${CPCONFIG}" -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 KC1 CSP' \
-		-view >/dev/null 2>&1 || {
-		echo "cprocsp-postinst: provider registration failed" >&2
-		exit 1
-	}
-elif [[ -e ${CP_LIBDIR}/libcspr.so ]]; then
-	"${CPCONFIG}" -ini '\cryptography\Defaults\Provider\Crypto-Pro GOST R 34.10-2012 KC2 CSP' \
-		-view >/dev/null 2>&1 || {
+# Sanity check: a default provider must be registered.  cpconfig cannot
+# view a whole section (-ini <section> -view fails), but -getdef returns
+# the default provider name for the given type.
+if [[ -e ${CP_LIBDIR}/libcsp.so || -e ${CP_LIBDIR}/libcspr.so ]]; then
+	"${CPCONFIG}" -defprov -getdef -provtype 80 >/dev/null 2>&1 || {
 		echo "cprocsp-postinst: provider registration failed" >&2
 		exit 1
 	}
