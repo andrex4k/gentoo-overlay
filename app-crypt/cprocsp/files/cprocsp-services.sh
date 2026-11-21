@@ -20,8 +20,11 @@ RUNDIR=${RUNDIR:-/run}
 
 CPCONFIG=$(ls -1 "${CP_ROOT}"/sbin/*/cpconfig 2>/dev/null | head -n 1)
 if [[ -z ${CPCONFIG} ]]; then
+	case "${1:-}" in
+		stop|status) exit 0 ;;
+	esac
 	echo "cprocsp-services: cpconfig not found under ${CP_ROOT}/sbin" >&2
-	exit 0
+	exit 1
 fi
 CP_SBINDIR=${CPCONFIG%/*}
 
