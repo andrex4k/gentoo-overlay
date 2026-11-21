@@ -33,7 +33,7 @@ HOMEPAGE="https://browser.yandex.ru/"
 LICENSE="Yandex-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+ffmpeg-codecs"
+IUSE="+ffmpeg-codecs qt6"
 RESTRICT="bindist mirror strip"
 
 # Upstream names the file with the full four-component version and "-1".
@@ -70,6 +70,7 @@ RDEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 	ffmpeg-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
+	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 
 QA_PREBUILT="*"
@@ -106,6 +107,11 @@ src_prepare() {
 	mkdir -p usr/share/metainfo || die
 	mv usr/share/appdata/* usr/share/metainfo/ || die
 	rm -r usr/share/appdata || die
+
+	# Qt5 is EOL: its shim is the only thing keeping libQt5* alive after
+	# upgrades (preserved libs).  The Qt6 shim is optional.
+	rm -f "${YANDEX_HOME}/libqt5_shim.so" || die
+	use qt6 || rm -f "${YANDEX_HOME}/libqt6_shim.so" || die
 
 	pushd "${YANDEX_HOME}/locales" >/dev/null || die
 	chromium_remove_language_paks
