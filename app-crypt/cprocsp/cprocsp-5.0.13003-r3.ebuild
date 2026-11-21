@@ -349,8 +349,19 @@ pkg_postinst() {
 	use readers_rutoken && udev_reload
 
 	if [[ ${ROOT} != / ]]; then
-		ewarn "cpconfig was not run: it configures the running system only."
-		ewarn "Inside the target system run: emerge --config ${CATEGORY}/${PN}"
+		local target=${ROOT%/}
+		# cpconfig uses absolute paths, so it can only configure a
+		# non-/ root from inside a chroot.  Do that when the target is
+		# runnable here (same architecture, complete rootfs).
+		if [[ -x ${target}/bin/sh ]] &&
+			chroot "${target}" /bin/sh -c true >/dev/null 2>&1; then
+			ebegin "Configuring CryptoPro CSP in ${target}"
+			chroot "${target}" /opt/cprocsp/libexec/cprocsp-postinst.sh
+			eend $? "cpconfig reported errors inside ${target}"
+		else
+			ewarn "cpconfig was not run: ${target} cannot be chrooted here."
+			ewarn "Inside the target run: emerge --config ${CATEGORY}/${PN}"
+		fi
 		return
 	fi
 

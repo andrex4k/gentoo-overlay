@@ -42,6 +42,14 @@ pidfile_of() {
 	printf '%s/cprocsp-%s.pid\n' "${RUNDIR}" "$1"
 }
 
+# Has the provider been registered by cprocsp-postinst?  KC1 and KC2 both
+# create these sections, so this distinguishes "configured, no daemons"
+# (normal for KC1) from "package merged but not configured".
+providers_configured() {
+	"${CPCONFIG}" -ini '\cryptography\Defaults\Provider Types\Type 080' -view >/dev/null 2>&1 ||
+		"${CPCONFIG}" -ini '\cryptography\Defaults\Provider Types\Type 075' -view >/dev/null 2>&1
+}
+
 # Is a process with this name running?  The daemons may fork and detach, so
 # a stale pid file alone does not mean that the service is down.
 is_running() {
@@ -132,7 +140,16 @@ do_start() {
 		found=1
 		start_service "${svc}" "${exe}" || return 1
 	done
-	[[ ${found} -eq 1 ]] || echo " * No CryptoPro CSP services are registered"
+	if [[ ${found} -eq 0 ]]; then
+		if providers_configured; then
+			# KC1 has no background daemons; this is a normal state.
+			echo " * CryptoPro CSP has no background services (KC1 provider)"
+			return 0
+		fi
+		echo "cprocsp-services: CryptoPro CSP is not configured" >&2
+		echo "cprocsp-services: run 'emerge --config app-crypt/cprocsp'" >&2
+		return 1
+	fi
 	return 0
 }
 
@@ -161,7 +178,14 @@ do_status() {
 			rc=3
 		fi
 	done
-	[[ ${found} -eq 1 ]] || echo " * No CryptoPro CSP services are registered"
+	if [[ ${found} -eq 0 ]]; then
+		if providers_configured; then
+			echo " * CryptoPro CSP has no background services (KC1 provider)"
+		else
+			echo "cprocsp-services: CryptoPro CSP is not configured" >&2
+			rc=3
+		fi
+	fi
 	return ${rc}
 }
 
